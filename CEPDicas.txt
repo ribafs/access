@@ -1,0 +1,50 @@
+AUTOMATIZANDO O CEP NUM SISTEMA ACCESS
+
+1) Dirigir-se ao site dos Correios:
+
+Da última vez encontrei aqui:
+http://www.correios.com.br/Servicos/cep/download1.cfm
+
+Obs.: Esta é a terceira alteração deste endereço. Caso não encontre aqui,
+vá até um nível antes e procure ou até a página principal.
+
+2) Baixar os seguintes arquivos:
+
+- Todos Arquivos de Logradouros por UF (CEP_TUF.EXE) - 
+http://www.correios.com.br/cep/cep_tuf.exe (9,98MB)
+Ou apenas o do Estado desejado (veja a tabela Arquivos de logradouros por UF)
+
+- Todos Arquivos Auxiliares (CEP_TAU.EXE) - 
+http://www.correios.com.br/cep/cep_tau.exe (910 kb)
+Obs.: Aqui tive problemas com este arquivo por isso peguei um a um os auxiliares (recomendo que faça 
+o mesmo pegando todos os arquivos da tabela Arquivos Auxiliares).
+
+- Aplicativo (INSTALA.EXE - programa em VB para criar o arquivo em Access) - 
+http://www.correios.com.br/cep/instala.exe  (2,92 MB)
+
+- Documentação (arquivo Leiame.doc com informações detalhadas) - 
+http://www.correios.com.br/cep/leiame.exe (130kb)
+
+3) Coloque todos os arquivos num diretório temporário. Apenas execute o "Instala.exe" para que
+seja descompactado, então execute o "setup.exe", que irá criar o grupo e item de programas GPB.
+
+4) Descompacte agora apenas o arquivo CEP_TUF.EXE e copie todos os arquivos textos para a pasta
+do aplicativo c:\arquivos de programas\gpb\
+
+5) Com todos os arquivos da tabela Arquivos Auxiliares na pasta atual execute o GPB.
+
+6) Em Descompactação marque Descompactar arquivos. Em  Auxiliares marque todas e clique em
+Iniciar. Aguarde até a conclusão. Caso esteja tudo ok ele irá descompactar os asquivos da Tabela
+Arquivos Auxiliares.
+
+7) Agora vamos exportar os Dados dos arquivos texto (.txt) para o arquivo do Access (.mdb). Clique
+em Carregar Base de Dados e passe todos os Estados e todas as tabelas Auxiliares.
+
+8) Bem, agora basta Abrir o arquivo GPBTXT.mdb (apenas 176MB e depois de Compactado fico em 
+136MB :) gerado no diretório: c:\arquivos de programas\gpb\  e bom proveito.
+
+Realmente, pelo tamanho do arquivo, a coisa deve ser implantada em grandes bancos de dados.
+------------------
+Ribamar FS
+ribafs@yahoo.com
+18/04/2000

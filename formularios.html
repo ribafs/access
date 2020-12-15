@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/formularios.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:55:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+   
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+   
+  <meta name="Generator" content="Microsoft Word 97">
+
+   
+  <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+
+   
+  <meta name="Author" content="Ribamar FS">
+
+   
+  <title>Cantinho dos Amantes do Access - Formul&aacute;rios</title>
+</head>
+
+
+<body>
+
+
+<table border="1" cols="8" width="100%">
+  <tbody>
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="introducao.html">Introdu&ccedil;&atilde;o</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="tabelas.html">Tabelas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="relacionamentos.html">Relacionamentos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="consultas.html">Consultas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="file:///E:/1Ribamar/1Sites/Access/formularios.htm">Formul&aacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="relatorios.html">Relat&oacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="macros.html">Macros</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="modulos.html">M&oacute;dulos</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="activex.html">ActiveX</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="automacao.html">Automa&ccedil;&atilde;oOLE</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="graficos.html">Gr&aacute;ficos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dao.html">DAO</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="sql.html">SQL</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="seguranca.html">Seguran&ccedil;a</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="redes.html">Redes/ODBC</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dicas.html">Dicas</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="cursoonline.html">Curso
+Online</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="wizards.html">Wizards</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="ferramentas.html">Ferramentas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="help.html">Help</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="downloads.html">Downloads</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;</center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center>
+<p><b><font size="+2">FORMUL&Aacute;RIOS</font></b>
+</p>
+<p><b><font size="+2"><a href="Controles.html">Controles</a></font></b></p>
+</center>
+
+
+<p>&nbsp;&nbsp;&nbsp; Formul&aacute;rios s&atilde;o instrumentos para facilitar
+a entrada e edi&ccedil;&atilde;o dos dados. Eles tamb&eacute;m trazem para
+o programador recursos de programa&ccedil;&atilde;o n&atilde;o existentes
+nas Tabelas e Consutas, al&eacute;m de serem visualmente mais atraentes
+que Tabelas ou consultas.
+<br>
+&nbsp;
+</p>
+<p><b><font size="+1">Cancelando Evento em outro Formul&aacute;rio</font></b>
+</p>
+<p>Para que eu estando com o foco no formul&aacute;rio Senha, possa cancelar
+um evento num subformul&aacute;rio, do formul&aacute;rio servi&ccedil;os.
+O que eu estou querendo &eacute; que ao preencher um desconto maior que
+um valor seja pedida uma senha de autorizacao (abre-se um formulario baseado
+numa tabela onde esta armmazenada a senha) e se a senha estiver errada
+o formulario seja fechado e o evento seja cancelado o foco permanecendo
+no Controle Desconto.
+</p>
+<p>1. Na tabela que possui o campo Desconto, defina-o como Requerido Sim.
+</p>
+<p>2. Substitua o comando DoCmd.CancelEvent no Formul&aacute;rio Senha
+pelo comando:
+</p>
+<p>Forms!seuformul&aacute;riovendas!seusubformul&aacute;riovendas.Form!Desconto=Null
+</p>
+<p>A coisa acabou ficando assim (colocando o Desconto como n&atilde;o Requerido):
+</p>
+<p>Forms![Servi&ccedil;os]![Itens de Servi&ccedil;o Subformul&aacute;rio].[Form]!Desconto.SetFocus
+<br>
+
+</p>
+<hr width="100%">
+<br>
+Colabora&atilde;o do colega da Amantes da Programa&ccedil;&atilde;o:
+<br>
+Vagner Izaias Ferreira
+<br>
+Vagner'Soft Inform&aacute;tica Ltda.
+</body>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/formularios.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:55:49 GMT -->
+</html>

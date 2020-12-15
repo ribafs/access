@@ -1,0 +1,972 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/DicasPreferidas.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+   
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+   
+  <meta name="Generator" content="Microsoft Word 97">
+
+   
+  <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+
+   
+  <title>BACKUP E RECUPERA&Ccedil;&Atilde;O DE BANCO DE DADOS DANIFICADO</title>
+</head>
+
+
+<body>
+
+
+<table border="1" cols="8" width="100%">
+  <tbody>
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="introducao.html">Introdu&ccedil;&atilde;o</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="tabelas.html">Tabelas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="relacionamentos.html">Relacionamentos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="consultas.html">Consultas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="formularios.html">Formul&aacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="relatorios.html">Relat&oacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="macros.html">Macros</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="modulos.html">M&oacute;dulos</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="activex.html">ActiveX</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="automacao.html">Automa&ccedil;&atilde;oOLE</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="graficos.html">Gr&aacute;ficos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dao.html">DAO</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="sql.html">SQL</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="seguranca.html">Seguran&ccedil;a</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="redes.html">Redes/ODBC</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dicas.html">Dicas</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="cursoonline.html">Curso
+Online</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="wizards.html">Wizards</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="ferramentas.html">Ferramentas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="help.html">Help</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="downloads.html">Downloads</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;</center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center>
+<p><b>DICAS PREFERIDAS</b></p>
+</center>
+
+
+<p><b><font size="-1">Backup e Recupera&ccedil;&atilde;o de Banco de Dados
+Danificado </font></b><a href="#_Toc472088358">*</a>
+</p>
+<p><b><font size="-1">Colocando o Rel&oacute;gio/Calend&aacute;rio num Controle
+</font></b><a href="#_Toc472088359">*</a>
+</p>
+<p><b><font size="-1">Somando Valores de Campos de um Question&aacute;rio
+</font></b><a href="#_Toc472088360">*</a>
+</p>
+<p><b><font size="-1">Fazer Mensagem Piscar em Formul&aacute;rio </font></b><a href="#_Toc472088361">*</a>
+</p>
+<p><b><font size="-1">Tornando Valores Negativos de Campos em Vermelho </font></b><a href="#_Toc472088362">*</a>
+</p>
+<p><b><font size="-1">Personalizando uma Caixa De Texto do Tipo Sim/N&atilde;o
+</font></b><a href="#_Toc472088363">*</a>
+</p>
+<p><b><font size="-1">Mudando a Cor de Fundo de Controle </font></b><a href="#_Toc472088364">*</a>
+</p>
+<p><b><font size="-1">Mudando o T&iacute;tulo do Formul&aacute;rio para o
+Fornecedor que tem o Foco </font></b><a href="#_Toc472088365">*</a>
+</p>
+<p><b><font size="-1">Fun&ccedil;&atilde;o QBColor </font></b><a href="#_Toc472088366">*</a>
+</p>
+<p><b><font size="-1">Fun&ccedil;&atilde;o RGB </font></b><a href="#_Toc472088367">*</a>
+</p>
+<p><b><font size="-1">Controlando Eventos </font></b><a href="#_Toc472088368">*</a>
+</p>
+<p><b><font size="-1">Criar um Formul&aacute;rio e Bot&atilde;o de Comando
+Via C&oacute;digo e Dimensiona Controle para Mensagem Caber no Mesmo (Sizetofit)
+</font></b><a href="#_Toc472088369">*</a>
+</p>
+<p><b><font size="-1">Ocultando Controles </font></b><a href="#_Toc472088370">*</a>
+</p>
+<p><b><font size="-1">Exemplo da Fun&ccedil;&atilde;o Timer </font></b><a href="#_Toc472088376">*</a>
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088358"></a><b><font size="+1">Backup e Recupera&ccedil;&atilde;o
+de Banco de Dados Danificado</font></b>
+</p>
+<p>Fazer backup, restore, recupera&ccedil;&atilde;o e compacta&ccedil;&atilde;o
+de um Banco de Dados.
+</p>
+<p>Criar um outro banco de dados apenas para isso (pois o sistema n&atilde;o
+pode estar aberto para ser reparado e muitas vezes realmente nem conseguimos
+abri-lo), com um &uacute;nico formul&aacute;rio com 3 bot&otilde;es: Backup,
+Restore e Reparar Sistema Danificado.
+</p>
+<p>Digite no Evento Click do bot&atilde;o Backup:
+</p>
+<p>Dim X, Y As Integer, AppName As String
+</p>
+<p>AppName = "C:\autopsg\arj.exe a -vva a:autopsg *.mdb"
+</p>
+<p>X = Shell(AppName, 1)
+</p>
+<p>Digite no Evento Click do bot&atilde;o Restore:
+</p>
+<p>Dim X As Integer, AppName As String
+</p>
+<p>AppName = "c:\autopsg\Arj e -vva a:* c:\autopsg"
+</p>
+<p>X = Shell(AppName, 1)
+</p>
+<p>Aqui pode ser melhorado (a gosto), adicionando o par&acirc;metro /y
+a linha do c&oacute;digo do Restore ficando assim: AppName = "c:\autopsg\Arj
+e -vva a:* c:\autopsg /y"
+</p>
+<p>Selecione o bot&atilde;o Reparar, abra a janela de Propriedades e em
+Evento, na frente de Ao Clicar digite "=Reparo()" (sem as aspas).
+</p>
+<p>Crie tamb&eacute;m um m&oacute;dulo e digite o seguinte c&oacute;digo
+para a fun&ccedil;&atilde;o Reparo:
+</p>
+<p>Function Reparo()
+</p>
+<p>'Este exemplo tenta corrigir o banco de dados denominado autopsg.mdb.
+Voc&ecirc; n&atilde;o pode &lsquo;executar este procedimento a partir de um m&oacute;dulo
+de dentro do autopsg.mdb ou de outro
+</p>
+<p>&lsquo;Banco de dados que queira reparar
+</p>
+<p>Dim errLoop As Error
+</p>
+<p>If MsgBox("Corrigir o Sistema Auto Pe&ccedil;as S&atilde;o Gerardo?",
+_
+</p>
+<p>vbYesNo) = vbYes Then
+</p>
+<p>On Error GoTo Err_Repair
+</p>
+<p>DBEngine.RepairDatabase "c:\autopsg\autopsg.mdb"
+</p>
+<p>On Error GoTo 0
+</p>
+<p>MsgBox "Sistema corrigido com sucesso!"
+</p>
+<p>DoCmd.Quit &lsquo;Cair fora do Access
+</p>
+<p>End If
+</p>
+<p>Exit Function
+</p>
+<p>Err_Repair:
+</p>
+<p>For Each errLoop In DBEngine.Errors
+</p>
+<p>MsgBox "Corre&ccedil;&atilde;o mal-sucedida!" &amp; vbCr &amp; _
+</p>
+<p>"N&uacute;mero do erro: " &amp; errLoop.Number &amp; _
+</p>
+<p>vbCr &amp; errLoop.Description
+</p>
+<p>Next errLoop
+</p>
+<p>Dim dbsAutopsg, dbsAutopsgT As Database
+</p>
+<p>Set dbsAutopsg = OpenDatabase("C:\autopsg\autopsg.mdb")
+</p>
+<p>' Esta instru&ccedil;&atilde;o cria uma vers&atilde;o compactada do
+banco de dados Autopsg.mdb.
+</p>
+<p>DBEngine.CompactDatabase "c:\autopsg\autopsg.mdb", _
+</p>
+<p>"c:\autopsg\autopsg.mdb"
+</p>
+<p>End Function
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088359"></a><b><font size="+1">Colocando o Rel&oacute;gio/Calend&aacute;rio
+num Controle</font></b>
+</p>
+<p>Crie 2 Bot&otilde;es de Comando e 1 R&oacute;tulo (lblTempo), coloque
+figuras adequadas (rel&oacute;gio e calend&aacute;rio neles) nos bot&otilde;es.
+</p>
+<p>No Evento Ao Mover o Mouse do bot&atilde;o rel&oacute;gio digite:
+</p>
+<p>lblTempo.Caption = Format$(Time, "hh:mm")
+</p>
+<p>No Evento ao Mover o Mouse do bot&atilde;o calend&aacute;rio digite:
+</p>
+<p>lblTempo.Caption = Date
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088360"></a><b><font size="+1">Somando Valores de Campos
+de um Question&aacute;rio</font></b>
+</p>
+<p>Temos um formul&aacute;rio que entre outras cosias tem um question&aacute;rio
+Escala de Avalia&ccedil;&atilde;o de Depress&atilde;o (Terapia Ocupacional),
+com perguntas (R&oacute;tulos) e espa&ccedil;o para respostas (Caixas de
+Texto). As Caixas de Texto recebem nomes: um, dois, tr&ecirc;s em diante.
+Ao final temos uma caixa de texto "total". As perguntas (Est&aacute; satisfeito
+com sua vida, Aborrece-se com frequ&ecirc;ncia e por ai vai) devem ser
+respondidas com apenas uma letra: D ou N (Depress&atilde;o ou N&atilde;o
+Depress&atilde;o). Lembrar que aqui seria o terapeuta perguntando ao cliente.
+</p>
+<p>No Evento Ao Entrar da Caixa "total", digite:
+</p>
+<p>Private Sub total_Enter()
+</p>
+<p>If um = "D" Then
+</p>
+<p>contador = contador + 1
+</p>
+<p>End If
+</p>
+<p>If dois = "D" Then
+</p>
+<p>contador = contador + 1
+</p>
+<p>End If
+</p>
+<p>If tres = "D" Then
+</p>
+<p>contador = contador + 1
+</p>
+<p>End If
+</p>
+<p>If quatro = "D" Then
+</p>
+<p>contador = contador + 1
+</p>
+<p>End If
+</p>
+<p>If cinco = "D" Then
+</p>
+<p>contador = contador + 1
+</p>
+<p>End If
+</p>
+<p>&lsquo;... Cortei
+</p>
+<p>If trinta = "D" Then
+</p>
+<p>contador = contador + 1
+</p>
+<p>End If
+</p>
+<p>total = contador
+</p>
+<p>End Sub
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088361"></a><b><font size="+1">Fazer Mensagem Piscar em
+Formul&aacute;rio</font></b>
+</p>
+<p>Crie um R&oacute;tulo de nome lblPiscando (por exemplo) e coloque o
+seguinte c&oacute;digo no evento No Cron&ocirc;metro do Formul&aacute;rio:
+</p>
+<p>Private Sub Form_Timer()
+</p>
+<p>Me!lblPiscando.Visible = Not Me!lblPiscando.Visible
+</p>
+<p>End Sub
+</p>
+<p>Altere a propriedade Intervalo do Cron&ocirc;metro do form para 500
+(mude &agrave; vontade).
+</p>
+<p>Obs.: at&eacute; bot&otilde;es de comando piscam, sendo que todo ele,
+n&atilde;o apenas o caption.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088362"></a><b><font size="+1">Tornando Valores Negativos
+de Campos em Vermelho</font></b>
+</p>
+<p>Para que ao digitarmos valores negativos em um Controle/Campo basta
+que na propriedade Formato do Controle, coloque a seguinte express&atilde;o:
+</p>
+<p>#.###,##;-#.###,##[Vermelho]
+</p>
+<p>Veja outro exemplo:
+</p>
+<p>$#,##0.00[Verde];($#,##0.00)[Vermelho];"Zero";"Nulo"
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088363"></a><b><font size="+1">Personalizando uma Caixa
+De Texto do Tipo Sim/N&atilde;o</font></b>
+</p>
+<p>O exemplo a seguir mostra um formato personalizado sim/n&atilde;o para
+um controle caixa de texto. O controle exibe a palavra "Sempre" em texto
+azul para Sim, Verdadeiro ou Ativado, e a palavra "Nunca" em texto vermelho
+para N&atilde;o, Falso ou Desativado.
+</p>
+<p>Crie uma caixa de texto e coloque na propriedade Origem do Controle
+o Campo Sim/N&atilde;o correspondente da Tabela que deseja associar. Na
+propriedade formato da caixa de texto:
+</p>
+<p>;"Sempre"[Azul];"Nunca"[Vermelho]
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088364"></a><b><font size="+1">Mudando a Cor de Fundo
+de Controle</font></b>
+</p>
+<p>No exemplo a seguir, um procedimento de evento Current verifica o status
+de um bot&atilde;o de op&ccedil;&atilde;o denominado Descontinuado. Se
+o bot&atilde;o estiver selecionado, o exemplo definir&aacute; a cor de
+segundo plano do campo NomeDoProduto como vermelho para indicar que o produto
+foi descontinuado.
+</p>
+<p>Para testar o exemplo, adicione o procedimento de evento a seguir a
+um formul&aacute;rio que contenha uma op&ccedil;&atilde;o denominada Descontinuado
+e uma caixa de texto denominada NomeDoProduto.
+</p>
+<p>Private Sub Form_Current()
+</p>
+<p>If Me!Descontinuado Then
+</p>
+<p>Me!NomeDoProduto.BackColor = 255
+</p>
+<p>EndIf
+</p>
+<p>End Sub
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088365"></a><b><font size="+1">Mudando o T&iacute;tulo
+do Formul&aacute;rio para o Fornecedor que tem o Foco</font></b>
+</p>
+<p>O pr&oacute;ximo exemplo define a propriedade Caption de um formul&aacute;rio
+com o campo NomeDoCliente. Conforme o foco &eacute; movido de registro
+para registro, a barra de t&iacute;tulo mostra o nome do fornecedor atual.
+</p>
+<p>Para testar o exemplo, adicione o procedimento de evento a seguir a
+um formul&aacute;rio que contenha uma caixa de texto denominada NomeDoCliente.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p>Na propriedade No Atual do Formul&aacute;rio, digite:
+</p>
+<p>Private Sub Form_Current()
+</p>
+<p>If NomeDoCliente &lt;&gt; Null Then &lsquo;Evita problema com Campo vazio
+</p>
+<p>Me.Caption = Me!NomeDoCliente
+</p>
+<p>End If
+</p>
+<p>End Sub
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088366"></a><b><font size="+1">Fun&ccedil;&atilde;o QBColor</font></b>
+</p>
+<p>Retorna um Long que representa o c&oacute;digo de cores RGB correspondente
+ao n&uacute;mero de cor especificado.
+</p>
+<p>Sintaxe
+</p>
+<p>QBColor(cor)
+</p>
+<p>O argumento obrigat&oacute;rio cor &eacute; um n&uacute;mero inteiro
+no intervalo de 0 a 15.
+</p>
+<p>Defini&ccedil;&otilde;es
+</p>
+<p>O argumento cor possui as defini&ccedil;&otilde;es a seguir:
+</p>
+<p>N&uacute;mero Cor N&uacute;mero Cor
+</p>
+<p>0 Preto 8 Cinza
+</p>
+<p>1 Azul 9 Azul-claro
+</p>
+<p>2 Verde 10 Verde-claro
+</p>
+<p>3 Ciano 11 Ciano-claro
+</p>
+<p>4 Vermelho 12 Vermelho-claro
+</p>
+<p>5 Magenta 13 Magenta-claro
+</p>
+<p>6 Amarelo 14 Amarelo-claro
+</p>
+<p>7 Branco 15 Branco-brilhante
+</p>
+<p>Coment&aacute;rios
+</p>
+<p>O argumento cor representa valores de cor utilizados por vers&otilde;es
+anteriores do Basic (como o Microsoft Visual Basic para MS-DOS e o Basic
+Compiler). Come&ccedil;ando pelo byte menos significativo, o valor retornado
+especifica os valores de vermelho, verde e azul utilizados para definir
+a cor apropriada no sistema RGB utilizado pelo Visual Basic para Aplicativos.
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p>EXEMPLO:
+</p>
+<p>Este exemplo utiliza a fun&ccedil;&atilde;o QBColor para alterar a propriedade
+BackColor do formul&aacute;rio passado como MeuFormul&aacute;rio para a
+cor indicada por C&oacute;digoDaCor. QBColor aceita valores inteiros entre
+0 e 15.
+</p>
+<p>Sub ChangeBackColor (C&oacute;digoDaCor As Integer, MeuFormul&aacute;rio
+As Form)
+</p>
+<p>MeuFormul&aacute;rio.BackColor = QBColor(C&oacute;digoDaCor)
+</p>
+<p>End Sub
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088367"></a><b><font size="+1">Fun&ccedil;&atilde;o RGB</font></b>
+</p>
+<p>Retorna um n&uacute;mero inteiro Long que representa um valor de cor
+RGB.
+</p>
+<p>Sintaxe
+</p>
+<p>RGB(red, green, blue
+</p>
+<p>A sintaxe da fun&ccedil;&atilde;o RGB possui os argumentos nomeados
+a seguir:
+</p>
+<p>Parte Descri&ccedil;&atilde;o
+</p>
+<p>red Obrigat&oacute;rio; Variant (Integer). N&uacute;mero no intervalo
+de 0 a 255, inclusive, que representa o componente vermelho da cor.
+</p>
+<p>green Obrigat&oacute;rio; Variant (Integer). N&uacute;mero no intervalo
+de 0 a.255, inclusive, que representa o componente verde da cor.
+</p>
+<p>blue Obrigat&oacute;rio; Variant (Integer). N&uacute;mero no intervalo
+de 0 a 255, inclusive, que representa o componente azul da cor.
+</p>
+<p>Coment&aacute;rios
+</p>
+<p>Os m&eacute;todos e as propriedades de aplicativos que aceitam uma especifica&ccedil;&atilde;o
+de cor esperam que essa especifica&ccedil;&atilde;o seja um n&uacute;mero
+que represente um valor de cor RGB. Este valor especifica a intensidade
+relativa de vermelho, verde e azul que causa a exibi&ccedil;&atilde;o de
+uma cor espec&iacute;fica.
+</p>
+<p>O valor de qualquer argumento de RGB que exceda 255 &eacute; assumido
+como sendo 255.
+</p>
+<p>A tabela a seguir lista algumas cores padr&atilde;o e os valores de
+vermelho, verde, e azul que elas cont&ecirc;m:
+</p>
+<p>Cor Valor do vermelho Valor do verde Valor do azul
+</p>
+<p>Preto 0 0 0
+</p>
+<p>Azul 0 0 255
+</p>
+<p>Verde 0 255 0
+</p>
+<p>Ciano 0 255 255
+</p>
+<p>Vermelho 255 0 0
+</p>
+<p>Magenta 255 0 255
+</p>
+<p>Amarelo 255 255 0
+</p>
+<p>Branco 255 255 255
+</p>
+<p>EXEMPLO:
+</p>
+<p>Este exemplo mostra como a fun&ccedil;&atilde;o RGB &eacute; utilizada
+para retornar um n&uacute;mero inteiro que representa um valor de cor RGB.
+Ela &eacute; utilizada em m&eacute;todos e propriedades de aplicativo que
+aceitam uma especifica&ccedil;&atilde;o de cor. O objeto MeuObjeto e a
+sua propriedade s&atilde;o utilizados somente com finalidades ilustrativas.
+Se MeuObjeto n&atilde;o existir, ou se n&atilde;o tiver uma propriedade
+Color, ocorrer&aacute; um erro.
+</p>
+<p>Dim VERMELHO, I, ValorRGB, MeuObjeto
+</p>
+<p>Vermelho = RGB(255, 0, 0) ' Retorna o valor para Vermelho.
+</p>
+<p>I = 75 ' Inicializa o deslocamento.
+</p>
+<p>ValorRGB = RGB(I, 64 + I, 128 + I) ' Igual a RGB(75, 139, 203).
+</p>
+<p>MeuObjeto.Color = RGB(255, 0, 0) ' Define a propriedade Color de
+</p>
+<p>' MeuObjeto como Vermelho.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088368"></a><b><font size="+1">Controlando Eventos</font></b>
+</p>
+<p>O exemplo a seguir mostra como voc&ecirc; pode utilizar o valor inserido
+no controle Pa&iacute;s para determinar qual dentre duas macros distintas
+ser&aacute; executada quando voc&ecirc; clicar no bot&atilde;o Relat&oacute;rio
+Imprimir Pa&iacute;s.
+</p>
+<p>Sub Pa&iacute;s_AfterUpdate()
+</p>
+<p>If Pa&iacute;s = "Canad&aacute;" Then
+</p>
+<p>[Relat&oacute;rio Imprimir Pa&iacute;s].OnClick = "ImprimirRelat&oacute;rioDoCanad&aacute;"
+</p>
+<p>ElseIf Pa&iacute;s = "USA" Then
+</p>
+<p>[Relat&oacute;rio Imprimir Pa&iacute;s].OnClick = "ImprimirRelat&oacute;rioUSA"
+</p>
+<p>End If
+</p>
+<p>End Sub
+</p>
+<p><b>Outros Exemplos</b>:
+</p>
+<p>No Visual Basic, defina a propriedade com uma express&atilde;o de seq&uuml;&ecirc;ncia.
+</p>
+<p>Para executar Utilize esta sintaxe Exemplo
+</p>
+<p>Macro "nomedamacro" Bot&atilde;o1.OnClick = "MinhaMacro"
+</p>
+<p>Procedimento de evento "[Event Procedure]" Bot&atilde;o1.Onclick = "[Event
+Procedure]"
+</p>
+<p>Fun&ccedil;&atilde;o definida pelo usu&aacute;rio "=nomedafun&ccedil;&atilde;o(
+)" Bot&atilde;o1.Onclick = "=MinhaFun&ccedil;&atilde;o()"
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><b><font size="+1">Exibindo e Ocultando uma Mensagem de acordo com o Valor
+de um Controle Calculado</font></b>
+</p>
+<p>O exemplo a seguir exibe ou oculta uma mensagem de congratula&ccedil;&otilde;es
+pr&oacute;xima a um controle calculado que mostra totais de vendas por
+vendedor. Em se&ccedil;&otilde;es de relat&oacute;rio onde o total das
+vendas for maior que a meta de vendas, um r&oacute;tulo denominado Mensagem
+exibir&aacute; a mensagem "Congratula&ccedil;&otilde;es! Voc&ecirc; atingiu
+sua meta de vendas" quando a se&ccedil;&atilde;o for impressa em se&ccedil;&otilde;es
+onde o total das vendas for menor que a meta de vendas, o r&oacute;tulo
+ficar&aacute; oculto.
+</p>
+<p>Para testar o exemplo, adicione o procedimento de evento a seguir a
+um relat&oacute;rio que contenha um r&oacute;tulo denominado Mensagem,
+uma caixa de texto denominada TotalGeral (um controle calculado que exibe
+o total de vendas) e uma se&ccedil;&atilde;o detalhe denominada DetalheDasVendas.
+</p>
+<p>Private Sub DetalheDasVendas_Format(Cancel As Integer, _
+</p>
+<p>FormatCount As Integer)
+</p>
+<p>Const conMetaDeVendas = 1000
+</p>
+<p>If Me!TotalGeral &gt; conMetaDeVendas Then
+</p>
+<p>Me!Mensagem.Visible = True
+</p>
+<p>Else
+</p>
+<p>Me!Mensagem.Visible = False
+</p>
+<p>End If
+</p>
+<p>End Sub
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088369"></a><b><font size="+1">Criar um Formul&aacute;rio
+e Bot&atilde;o de Comando Via C&oacute;digo e Dimensiona Controle para
+Mensagem Caber no Mesmo (Sizetofit)</font></b>
+</p>
+<p>O exemplo a seguir cria um novo formul&aacute;rio e um novo bot&atilde;o
+de comando no formul&aacute;rio. Depois, o procedimento define a propriedade
+Caption do controle e dimensiona o controle para que nele caiba a legenda.
+</p>
+<p>Sub DimensionarNovoControle()
+</p>
+<p>Dim frm As Form, ctl As Control
+</p>
+<p>' Cria novo formul&aacute;rio.
+</p>
+<p>Set frm = CreateForm
+</p>
+<p>' Cria novo bot&atilde;o de comando.
+</p>
+<p>Set ctl = CreateControl(frm.Name, acCommandButton, , , , 500, 500)
+</p>
+<p>' Restaura formul&aacute;rio.
+</p>
+<p>DoCmd.Restore
+</p>
+<p>' Define a propriedade Caption do controle.
+</p>
+<p>ctl.Caption = "Legenda de Controle Extremamente Longa"
+</p>
+<p>' Dimensiona o controle para que nele caiba legenda.
+</p>
+<p>ctl.SizeToFit
+</p>
+<p>End Sub
+</p>
+<p><a name="_Toc472088370"></a><b><font size="+1">Ocultando Controles</font></b>
+</p>
+<p>O exemplo a seguir oculta o campo C&oacute;digoDoProduto no modo Folha
+de Dados do formul&aacute;rio Produtos.
+</p>
+<p>Forms!Produtos!C&oacute;digoDoProduto.ColumnHidden = -1
+</p>
+<p>O pr&oacute;ximo exemplo tamb&eacute;m oculta o campo C&oacute;digoDoProduto
+no modo Folha de dados da tabela Produtos. Para definir a propriedade ColumnHidden,
+o exemplo utiliza os procedimentos ExibirColuna e DefinirPropCampo, os
+quais est&atilde;o no m&oacute;dulo padr&atilde;o do banco de dados.
+</p>
+<p>Dim dbs As Database
+</p>
+<p>Set dbs = CurrentDb
+</p>
+<p>ExibirColuna dbs.TableDefs!Produtos.Fields!C&oacute;digoDoProduto, False
+</p>
+<p>Sub ExibirColuna(fldObjeto As Field, intExibir As Integer)
+</p>
+<p>' Define a propriedade ColumnHidden.
+</p>
+<p>DefinirPropCampo fldObjeto, "ColumnHidden", dbLong, Not intExibir
+</p>
+<p>End Sub
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc472088376"></a><b><font size="+1">Exemplo da Fun&ccedil;&atilde;o
+Timer</font></b>
+</p>
+<p>Este exemplo utiliza a fun&ccedil;&atilde;o Timer para pausar o aplicativo.
+O exemplo tamb&eacute;m utiliza DoEvents para submeter-se a outros processos
+durante a pausa.
+</p>
+<p>Dim TempoDePausa, In&iacute;cio, Fim, TempoTotal
+</p>
+<p>If (MsgBox("Pressione Sim para pausar por 5 segundos", 4)) = vbYes Then
+</p>
+<p>TempoDePausa = 5 ' Define a dura&ccedil;&atilde;o.
+</p>
+<p>In&iacute;cio = Timer ' Define a hora inicial.
+</p>
+<p>Do While Timer &lt; In&iacute;cio + TempoDePausa
+</p>
+<p>DoEvents ' Submete-se a outros processos. Permite multitarefa
+</p>
+<p>Loop
+</p>
+<p>Fim = Timer ' Define a hora final.
+</p>
+<p>TempoTotal = Fim - In&iacute;cio ' Calcula o tempo total.
+</p>
+<p>MsgBox "Pausou por " &amp; TempoTotal &amp; " segundos"
+</p>
+<p>Else
+</p>
+<p>End
+</p>
+<p>End If
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p>OUTRO:
+</p>
+<p>Dim TempoDePausa, In&iacute;cio, Fim, TempoTotal
+</p>
+<p>TempoDePausa = InputBox ("Digite o Tempo de pausa")
+</p>
+<p>In&iacute;cio = Timer ' Define a hora inicial.
+</p>
+<p>Do While Timer &lt; In&iacute;cio + TempoDePausa
+</p>
+<p>DoEvents ' Submete-se a outros processos. Permite multitarefa
+</p>
+<p>Loop
+</p>
+<p>Fim = Timer ' Define a hora final.
+</p>
+<p>TempoTotal = Fim - In&iacute;cio ' Calcula o tempo total.
+</p>
+<p>MsgBox "Pausou por " &amp; TempoTotal &amp; " segundos"
+<br>
+&nbsp;
+</p>
+<p><b><font size="+1">Formatos num&eacute;ricos definidos pelo usu&aacute;rio
+(fun&ccedil;&atilde;o Format)</font></b>
+</p>
+<p>A tabela a seguir identifica caracteres que voc&ecirc; pode utilizar
+para criar formatos num&eacute;ricos definidos pelo usu&aacute;rio:
+</p>
+<p>Caractere Descri&ccedil;&atilde;o
+</p>
+<p>Nenhum Exibe o n&uacute;mero sem formata&ccedil;&atilde;o.
+</p>
+<p>(0) Espa&ccedil;o reservado para d&iacute;gito. Exibe um d&iacute;gito
+ou um zero. Se a express&atilde;o apresenta um d&iacute;gito na posi&ccedil;&atilde;o
+onde o 0 aparece na seq&uuml;&ecirc;ncia de caracteres de formato, exibe-o;
+caso contr&aacute;rio, exibe um zero nessa posi&ccedil;&atilde;o.Se o n&uacute;mero
+apresenta menos d&iacute;gitos do que os zeros existentes (de qualquer
+lado do decimal) na express&atilde;o de formato, exibe zeros &agrave; esquerda
+ou &agrave; direita. Se o n&uacute;mero apresenta mais d&iacute;gitos &agrave;
+direita do separador decimal do que zeros &agrave; direita do separador
+decimal na express&atilde;o de formato, arredonda o n&uacute;mero em tantas
+casas decimais quanto for o n&uacute;mero de zeros. Se o n&uacute;mero
+apresenta mais d&iacute;gitos &agrave; esquerda do separador decimal do
+que zeros &agrave; esquerda do separador decimal na express&atilde;o de
+formato, exibe os d&iacute;gitos extras sem modifica&ccedil;&atilde;o.
+</p>
+<p>(#) Espa&ccedil;o reservado para d&iacute;gito. Exibe um d&iacute;gito
+ou nada. Se a express&atilde;o apresenta um d&iacute;gito onde o # aparece
+na seq&uuml;&ecirc;ncia de caracteres de formato, exibe-o; caso contr&aacute;rio,
+n&atilde;o exibe nada nessa posi&ccedil;&atilde;o.Esse s&iacute;mbolo funciona
+como o espa&ccedil;o reservado para o d&iacute;gito 0, exceto que os zeros
+&agrave; direita e &agrave; esquerda n&atilde;o s&atilde;o exibidos se
+o n&uacute;mero apresentar o mesmo n&uacute;mero de d&iacute;gitos ou menos
+do que o n&uacute;mero de caracteres # de cada lado do separador decimal
+na express&atilde;o de formato.
+</p>
+<p>(.) Espa&ccedil;o reservado decimal. Em algumas localidades, uma v&iacute;rgula
+&eacute; utilizada como separador decimal. O espa&ccedil;o reservado decimal
+determina quantos d&iacute;gitos s&atilde;o exibidos &agrave; esquerda
+e &agrave; direita do separador decimal. Se a express&atilde;o de formato
+cont&eacute;m somente sinais num&eacute;ricos &agrave; esquerda desse s&iacute;mbolo,
+n&uacute;meros menores do que 1 come&ccedil;am com um separador decimal.
+Para exibir um zero &agrave; esquerda exibido com n&uacute;meros fracion&aacute;rios,
+utilize 0 como o primeiro espa&ccedil;o reservado de d&iacute;gito &agrave;
+esquerda do separador decimal. O caractere realmente utilizado como um
+espa&ccedil;o reservado decimal na sa&iacute;da formatada depende do Formato
+num&eacute;rico reconhecido pelo seu sistema.
+</p>
+<p>(%) Espa&ccedil;o reservado de porcentagem. A express&atilde;o &eacute;
+multiplicada por 100. O caractere de porcentagem (%) &eacute; inserido
+na mesma posi&ccedil;&atilde;o em que aparece na seq&uuml;&ecirc;ncia de
+caracteres de formato.
+</p>
+<p>(,) Separador de milhar. Em algumas localidades, um ponto &eacute; utilizado
+como separador de milhar. O separador de milhar separa as centenas dos
+milhares dentro de um n&uacute;mero com quatro ou mais posi&ccedil;&otilde;es
+&agrave; esquerda do separador decimal. A utiliza&ccedil;&atilde;o padr&atilde;o
+do separador de milhar &eacute; especificada se o formato contiver um separador
+de milhar cercado por espa&ccedil;os reservados para d&iacute;gitos (0
+ou #). Dois separadores de milhar adjacentes ou um separador de milhar
+imediatamente &agrave; esquerda do separador decimal (independente de o
+decimal ser ou n&atilde;o especificado) significa "escalonar o n&uacute;mero
+dividindo-o por 1000 e arredondando se necess&aacute;rio." Por exemplo,
+voc&ecirc; pode utilizar a seq&uuml;&ecirc;ncia de caracteres de formato
+"##0,," para representar 100 milh&otilde;es como 100. N&uacute;meros menores
+do que 1 milh&atilde;o s&atilde;o exibidos como 0. Dois separadores de
+milhar adjacentes em qualquer posi&ccedil;&atilde;o diferente de imediatamente
+&agrave; esquerda do separador decimal s&atilde;o tratados simplesmente
+como especifica&ccedil;&atilde;o da utiliza&ccedil;&atilde;o de um separador
+de milhar. O caractere realmente utilizado como separador de milhar na
+sa&iacute;da formatada depende do Formato num&eacute;rico reconhecido pelo
+seu sistema.
+</p>
+<p>(:) Separador de tempo. Em algumas localidades, outros caracteres podem
+ser utilizados para representar o separador de tempo. O separador de tempo
+separa horas, minutos e segundos quando os valores de tempo s&atilde;o
+formatados. O caractere realmente utilizado como separador de tempo na
+sa&iacute;da formatada depende das defini&ccedil;&otilde;es de seu sistema.
+</p>
+<p>(/) Separador de data. Em algumas localidades, outros caracteres podem
+ser utilizados para representar o separador de data. O separador de data
+separa o dia, o m&ecirc;s e o ano quando os valores de data s&atilde;o
+formatados. O caractere realmente utilizado como separador de data na sa&iacute;da
+formatada depende das defini&ccedil;&otilde;es de seu sistema.
+</p>
+<p>(E- E+ e- e+) Formato cient&iacute;fico. Se a express&atilde;o de formato
+cont&eacute;m pelo menos um espa&ccedil;o reservado para d&iacute;gito
+(0 ou #) &agrave; direita de E-, E+, e-, ou e+, o n&uacute;mero &eacute;
+exibido em formato cient&iacute;fico e E ou e &eacute; inserido entre o
+n&uacute;mero e seu expoente. O n&uacute;mero de espa&ccedil;os reservados
+para d&iacute;gitos &agrave; direita determina o n&uacute;mero de d&iacute;gitos
+no expoente. Utilize E- ou e- para colocar um sinal de menos ao lado de
+expoentes negativos. Utilize E+ ou e+ para colocar um sinal de menos ao
+lado de expoentes negativos e um sinal de mais ao lado de expoentes positivos.
+</p>
+<p>- + $ ( ) Exibe um caractere literal. Para exibir um caractere diferente
+daqueles listados, anteceda-o com uma barra invertida (\) ou coloque-o
+entre aspas duplas (" ").
+</p>
+<p>(\) Exibe o pr&oacute;ximo caractere na seq&uuml;&ecirc;ncia de caracteres
+de formato. Para exibir um caractere que apresenta um significado especial
+como um caractere literal, anteceda-o com uma barra invertida (\). A barra
+invertida, na verdade, n&atilde;o &eacute; exibida. Utiliz&aacute;-la &eacute;
+a mesma coisa que colocar o pr&oacute;ximo caractere entre aspas duplas.
+Para exibir uma barra invertida, utilize duas barras invertidas (\\).Exemplos
+de caracteres que n&atilde;o podem ser exibidos como caracteres literais
+s&atilde;o os caracteres de formata&ccedil;&atilde;o de data e hora (a,
+c, d, h, m, n, p, q, s, t, w, y, / e :), os caracteres de formata&ccedil;&atilde;o
+num&eacute;rica (#, 0, %, E, e, v&iacute;rgula e ponto) e os caracteres
+de formata&ccedil;&atilde;o da seq&uuml;&ecirc;ncia de caracteres (@, &amp;,
+&lt;, &gt; e !).
+</p>
+<p>("ABC") Exibe a seq&uuml;&ecirc;ncia de caracteres dentro de aspas duplas
+(" "). Para incluir uma seq&uuml;&ecirc;ncia de caracteres em format a
+partir do c&oacute;digo, voc&ecirc; deve utilizar Chr(34) para envolver
+o texto (34 &eacute; o c&oacute;digo de caractere para uma aspa (")).
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+</body>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/DicasPreferidas.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:57:12 GMT -->
+</html>

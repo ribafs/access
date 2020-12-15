@@ -1,0 +1,942 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/redes.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:56:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+   
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+   
+  <meta name="Generator" content="Microsoft Word 97">
+
+   
+  <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+
+   
+  <meta name="Author" content="Ribamar FS">
+
+   
+  <title>Cantinho dos Amantes do Access - Redes</title>
+</head>
+
+
+<body>
+
+
+<table border="1" cols="8" width="100%">
+  <tbody>
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="introducao.html">Introdu&ccedil;&atilde;o</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="tabelas.html">Tabelas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="relacionamentos.html">Relacionamentos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="consultas.html">Consultas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="formularios.html">Formul&aacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="relatorios.html">Relat&oacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="macros.html">Macros</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="modulos.html">M&oacute;dulos</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="activex.html">ActiveX</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="automacao.html">Automa&ccedil;&atilde;oOLE</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="graficos.html">Gr&aacute;ficos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dao.html">DAO</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="sql.html">SQL</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="seguranca.html">Seguran&ccedil;a</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="file:///E:/1Ribamar/1Sites/Access/redes.htm">Redes/ODBC</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dicas.html">Dicas</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="cursoonline.html">Curso
+Online</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="wizards.html">Wizards</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="ferramentas.html">Ferramentas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="help.html">Help</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="downloads.html">Downloads</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;</center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center>
+<p><b><font size="+2">REDES</font></b></p>
+</center>
+
+
+<hr width="100%">
+<p><b><font size="-1">Rede Windows 95/98 </font></b><a href="#_Toc470776940">*</a>
+</p>
+<p><b><font size="-1">Como Obter o N&uacute;mero IP de uma M&aacute;quina
+e o N&uacute;mero da Placa de Rede </font></b><a href="#_Toc470776941">*</a>
+</p>
+<p><b><font size="-1">Login Name </font></b><a href="#_Toc470776942">*</a>
+</p>
+<p><b><font size="-1">Recebendo O Logon Da Rede </font></b><a href="#_Toc470776943">*</a>
+</p>
+<p><b><font size="-1">Ocultar qualquer diretorio compartilhado </font></b><a href="#_Toc470776944">*</a>
+</p>
+<p><b><font size="-1">BD EM REDE </font></b><a href="#_Toc470776945">*</a>
+</p>
+<p><b><font size="-1">Rotina para pegar o Nome do usu&aacute;rio da rede
+</font></b><a href="#_Toc470776946">*</a>
+</p>
+<p><b><font size="-1">Coment&aacute;rios Sobre BDs no Access </font></b><a href="#_Toc470776947">*</a>
+</p>
+<p><b><font size="-1">Como saber o "Login Name" do usu&aacute;rio corrente
+</font></b><a href="#_Toc470776948">*</a>
+</p>
+<p><b><a href="ODBC.html">ODBC</a></b>
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776940"></a><b><font size="+1">Rede Windows 95/98</font></b>
+</p>
+<p>Numa rede windows 95/98, deve-se lembrar de habilitar o Compartilhamento
+Completo no micro onde est&aacute; o sistema, para que funcione adequadamente.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776941"></a><b><font size="+1">Como Obter o N&uacute;mero
+IP de uma M&aacute;quina e o N&uacute;mero da Placa de Rede</font></b>
+</p>
+<p>Voce pode usar a propriedade localip
+</p>
+<p>do objeto winsock
+</p>
+<p>basta inclui-lo em seu projeto.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776942"></a><b><font size="+1">Login Name</font></b>
+</p>
+<p>Como saber o "Login Name" do usu&aacute;rio corrente
+</p>
+<p>Aplicativos: Visual Basic 3.0 32bits, Visual Basic 5.0, Office 95 e
+97.
+</p>
+<p>Introdu&ccedil;&atilde;o
+</p>
+<p>Muitos sistemas possuem um m&oacute;dulo de seguran&ccedil;a, onde os
+usu&aacute;rios cadastrados se identificam com seu "User Name" e uma senha
+para que o sistema possa saber as permiss&otilde;es de cada um dos usu&aacute;rios.
+</p>
+<p>Se o ambiente onde o sistema estiver sendo executado for de rede, &eacute;
+poss&iacute;vel aproveitar o login da rede para saber quem &eacute; o usu&aacute;rio.
+Desta forma, o usu&aacute;rio n&atilde;o necessita se identificar na entrada
+do sistema. Para saber qual o usu&aacute;rio corrente, &eacute; usada uma
+fun&ccedil;&atilde;o da API do Windows chamada GetUserName.
+</p>
+<p>Como Fazer?
+</p>
+<p>Para usar a fun&ccedil;&atilde;o GetUserName, &eacute; necess&aacute;rio
+declar&aacute;-la com a seguinte sintaxe:
+</p>
+<p>Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA"
+(ByVal lpBuffer As String, nSize As Long) As Long
+</p>
+<p>Como pode ser visto, esta fun&ccedil;&atilde;o possui 2 par&acirc;metros:
+lpBuffer, que &eacute; a vari&aacute;vel que receber&aacute; o "login name"
+e nSize, que &eacute; o tamanho em bytes da v&aacute;riavel que receber&aacute;
+o "login name".
+</p>
+<p>Se a fun&ccedil;&atilde;o retornar zero, o processo falhou, caso contr&aacute;rio,
+est&aacute; tudo OK.
+</p>
+<p>Exemplo:
+</p>
+<p>Function NomeUsuario()
+</p>
+<p>Dim strNomeUsuario As String
+</p>
+<p>Dim lngTamanhoString As Long
+</p>
+<p>Dim lngRetorno As Long
+</p>
+<p>lngRetorno = GetUserName(strNomeUsuario, lngTamanhoString)
+</p>
+<p>If lngRetorno &lt;&gt; 0 then
+</p>
+<p>strNomeUsuario = String(lngTamanhoString, " ")
+</p>
+<p>lngRetorno = GetUserName(strNomeUsuario, lngTamanhoString)
+</p>
+<p>strNomeUsuario = Left$(strNomeUsuario, lngTamanhoString - 1)
+</p>
+<p>NomeUsuario = strNomeUsuario
+</p>
+<p>Else
+</p>
+<p>MsgBox "A busca do Nome do Usu&aacute;rio falhou!!!"
+</p>
+<p>End If
+</p>
+<p>End Function
+</p>
+<p>Vamos analisar alguns pontos importantes deste exemplo:
+</p>
+<p>Como visto, a fun&ccedil;&atilde;o foi chamada duas vezes. Isto &eacute;
+feito para primeiramente saber o tamanho da string que deve ser passada.
+Este tamanho &eacute; retornado na vari&aacute;vel passada (lngTamanhoString).
+Sabendo este tamanho, basta preencher a string que receber&aacute; o "login
+name":
+</p>
+<p>strNomeUsuario = String(lngTamanhoString, " ")
+</p>
+<p>Quando tudo ocorre normalmente, basta em seguida usar o n&uacute;mero
+retornado pela fun&ccedil;&atilde;o na vari&aacute;vel de tamanho, que
+corresponde ao tamanho da string com o caractere nulo terminal. Como n&atilde;o
+desejamos o caractere nulo terminal pegamos todos menos ele:
+</p>
+<p>strNomeUsuario = Left$(strNomeUsuario, lngTamanhoString - 1)
+</p>
+<p>Conslus&atilde;o
+</p>
+<p>Tendo o "login name", basta pegar as permiss&otilde;es armazenadas normalmente
+em um banco de dados com todos os "login names" cadastrados.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776943"></a><b><font size="+1">Recebendo O Logon Da Rede</font></b>
+</p>
+<p>Retrieving the network logon name
+</p>
+<p>You can easily retrieve a user's network logon name by using the following
+</p>
+<p>API call:
+</p>
+<p>Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA"
+_
+</p>
+<p>(ByVal lpBuffer As String, nSize As Long) As Long
+</p>
+<p>To retrieve a "clean" version of the name, use this function:
+</p>
+<p>Public Function NTDomainUserName() As String
+</p>
+<p>Dim strBuffer As String * 255
+</p>
+<p>Dim lngBufferLength As Long
+</p>
+<p>Dim lngRet As Long
+</p>
+<p>Dim strTemp As String
+</p>
+<p>lngBufferLength = 255
+</p>
+<p>lngRet = GetUserName(strBuffer, lngBufferLength)
+</p>
+<p>strTemp = UCase(Trim$(strBuffer))
+</p>
+<p>NTDomainUserName = Left$(strTemp, Len(strTemp) - 1)
+</p>
+<p>End Function
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><b><font size="+1">SISTEMA "MODAL"</font></b>
+</p>
+<p>No VB4 - 16bits eu utilizava uma api da dll USER chamada SetSysModal
+que fazia com que a sua aplica&ccedil;&atilde;o se tornasse MODAL e impedisse
+o uso de outras aplica&ccedil;&otilde;es (ou seja o usu&aacute;rio n&atilde;o
+pode utilizar ALT+TAB nem CTRL+ESC nem utilizar outro programa do windows
+enquanto n&atilde;o sair da minha aplica&ccedil;&atilde;o). Preciso disso
+pois a m&aacute;quina s&oacute; poder&aacute; ser liberada ap&oacute;s
+uma verifica&ccedil;&atilde;o de senha e SmartCard.
+</p>
+<p>Algu&eacute;m sabe como fazer algo semelhante com alguma API de 32 bits
+no VB5 ? (a m&aacute;quina do smartcard s&oacute; trabalha em 32bits...)
+</p>
+<p>-------
+</p>
+<p>Meu amigo,
+</p>
+<p>Estive desesperado tentando conseguir a mesma coisa no windows 95; mas
+o que me impediu foi justamente o fato de que o Windows 95 &eacute; um
+sistema operacional multitarefa preemptiva, o que significa que nenhuma
+aplica&ccedil;&atilde;o pode estar de fato funcionando 'modal'. Podemos
+ter janelas 'modal' dentro de um contexto de processo em execu&ccedil;&atilde;o,
+mas n&atilde;o no sistema todo.
+</p>
+<p>Se o objetivo &eacute; parar tudo e fazer com que o usu&aacute;rio fique
+obrigado a usar um comando, como por exemplo uma janela de login com senha,
+o jeito &eacute; esconder a barra de tarefas, limitar a area de movimento
+do mouse na tela e manipular a entrada do teclado, tudo isso via API. O
+caso &eacute; que estou estudando essas 3 formas, sendo que a primeira
+j&aacute; consegui como fazer. Divino Junior
+</p>
+<p>dribeiro-fct@unimar.br
+</p>
+<p>-------
+</p>
+<p>Estou meio sem tempo para procurar uma solu&ccedil;&atilde;o elegante
+para o problema, mas a segunda parte de limitar a &aacute;rea de movimento
+do mouse na tela eu j&aacute; tinha pronta.
+</p>
+<p>Qualquer d&uacute;vida, &eacute; s&oacute; perguntar.
+</p>
+<p>At&eacute; mais,
+</p>
+<p>Kleber.
+</p>
+<p>PS.: duas observa&ccedil;&otilde;es para quem se interessar pela rotina:
+</p>
+<p>1&ordf;- Tentei usar uma 'MsgBox' depois de chamar a 'ClipCursor' e
+a MsgBox soltou o mouse! :-o
+</p>
+<p>2&ordf;- Diz o help da API que para soltar o mouse &eacute; s&oacute;
+mandar 'ClipCursor' com NULL como par&acirc;metro.
+</p>
+<p>Como em VB para se usar NULL &eacute; s&oacute; usar o zero, tentei
+fazer
+</p>
+<p>Temp = ClipCursor(0)
+</p>
+<p>mas n&atilde;o obtive sucesso... Se algu&eacute;m conseguir isto, por
+favor n&atilde;o se esque&ccedil;a de me contar como fez. :-)
+</p>
+<p>Option Explicit
+</p>
+<p>'ClipCursor confina o cursor em um ret&acirc;ngulo na tela '(as coordenadas
+s&atilde;o determinado na estrutura 'RECT')
+</p>
+<p>Private Declare Function ClipCursor Lib "user32" (lpRect As Any) As
+Long
+</p>
+<p>Private Type RECT
+</p>
+<p>left As Long
+</p>
+<p>top As Long
+</p>
+<p>right As Long
+</p>
+<p>bottom As Long
+</p>
+<p>End Type
+</p>
+<p>Private Sub Form_Click()
+</p>
+<p>Static Flag As Boolean
+</p>
+<p>Dim X As RECT, Temp As Long
+</p>
+<p>'Maximiza a tela, pois se o cursor for confinado em um local 'fora da
+janela, voc&ecirc; n&atilde;o conseguir&aacute; mais solt&aacute;-lo! :-)
+</p>
+<p>Me.WindowState = 2
+</p>
+<p>'Flag varia entre falso e verdadeiro a cada click 'Ou seja, um click
+no form confina o mouse; outro click solta-o
+</p>
+<p>If Flag Then
+</p>
+<p>'Cria um ret&acirc;ngulo com o tamanho total da tela (e assim libera
+</p>
+<p>o mouse)
+</p>
+<p>X.top = 0: X.left = 0
+</p>
+<p>X.bottom = Screen.Height / Screen.TwipsPerPixelY
+</p>
+<p>X.right = Screen.Width / Screen.TwipsPerPixelX
+</p>
+<p>Else
+</p>
+<p>'Confina o cursor nas seguintes coordenadas
+</p>
+<p>X.top = 300: X.left = 300
+</p>
+<p>X.bottom = 400: X.right = 500
+</p>
+<p>End If
+</p>
+<p>'Chama a fun&ccedil;&atilde;o; se o valor de retorno for diferente de
+zero, 'significa que a fun&ccedil;&atilde;o foi bem sucedida
+</p>
+<p>Temp = ClipCursor(X)
+</p>
+<p>Flag = Not Flag
+</p>
+<p>End Sub
+</p>
+<p>--------
+</p>
+<p>Bom, j&aacute; que t&aacute; todo mundo no mesmo barco eu acabei achando
+uma solu&ccedil;&atilde;o interessante e j&aacute; vou passar para os outros
+interessados...
+</p>
+<p>descobri que existe uma fun&ccedil;&atilde;o no User32 chamada SystemParametersInfo
+que diz ao windows95 ou NT que um Screen Saver est&aacute; ativo e, com
+isso, desabilita o ALT+TAB, CTRL+ESC e CTRL+ALT+DEL. funciona assim:
+</p>
+<p>Private Const SPI_SCREENSAVERRUNING = 97&amp;
+</p>
+<p>Private Declare Function SystemParametersInfo Lib "User32" Alias
+</p>
+<p>"SystemParametersInfoA" _
+</p>
+<p>(ByVal uAction As Long, ByVal uParam As Long, lpvParam As Any,
+</p>
+<p>ByVal fuWinIni As Long) _
+</p>
+<p>As Long
+</p>
+<p>Para ativar, no load ou no activate da tela, coloque o seguinte c&oacute;digo:
+</p>
+<p>Dim lngRet As Long
+</p>
+<p>Dim blnOld As Boolean
+</p>
+<p>lngRet = SystemParametersInfo(SPI_SCREENSAVERRUNNING, True, blnOld,
+0&amp;)
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p>Para Desativar o c&oacute;digo &eacute;:
+</p>
+<p>Dim lngRet As Long
+</p>
+<p>Dim blnOld As Boolean
+</p>
+<p>lngRet = SystemParametersInfo(SPI_SCREENSAVERRUNNING, False, blnOld,
+0&amp;)
+</p>
+<p>Eu testei e pode ter certeza de que funciona mesmo no win95 e no NT.
+</p>
+<p>Luis Serpa
+</p>
+<p>-------
+</p>
+<p>Ok, gente. Ja consegui colocar minha aplicacao MODAL presa sem que o
+usuario possa mudar com ALT+TAB, mas agora eu tenho outro problema:
+</p>
+<p>Depois que o usuario coloca a senha eu libero a maquina para uso e gostaria
+de impedir que algum desavisado saisse mexendo ou apgando diretorios do
+HD da maquina. existe alguma maneira de TRAVAR o explorer ou impedir que
+arquivos sejam deletedados ou impedir o acesso a determinados diretorios
+? Por favor se alguem souber... Luis Serpa
+</p>
+<p>---------
+</p>
+<p>Tem sim.
+</p>
+<p>Vai te dar um pouco de trabalho fazer o VB enxergar o conteudo do diretorio.
+Coloque um caracter Chr(254) no nome do arquivo... e ninguem vai poder
+acessar o diretorio via Windows (tem que criar o diretorio via DOS caso
+contrario nao funciona) . Mas via DOS qualquer um pode dar um Deltree e
+apagar tudo. Essa e uma dica velha ... mas quando nao se tem escolha, nao
+se pode mudar de OS...
+</p>
+<p>Agora uma coisa mais legal... Se voce estiver trabalhando em uma rede
+Win95 voce pode
+</p>
+<p><a name="_Toc470776944"></a><b><font size="+1">Ocultar qualquer diretorio
+compartilhado</font></b>
+</p>
+<p>va ate as propriedades do compartilhamento e coloque um $ no fim do
+nome como o diretorio que vai ser compartilhado. O diretorio continua sendo
+acessivel com as mesmas propriedades e senhas que voce definiu... porem
+agora ele nao aparece em nenhuma lista do Windows.
+</p>
+<p>Para entrar no diretorio so digitando o caminho completo: \\maquina\pasta$\
+legal ne? Eu uso esse recurso para ninguem deletar acidentalmente os arquivos
+da agencia de correio eletronico e o .MDB do meu programa. Boa sorte! CRG
+</p>
+<p>net.runner@u-netsys.com.br
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776945"></a><b><font size="+1">BD EM REDE</font></b>
+</p>
+<p>&gt;O que esta acontecendo &eacute; o seguinte.
+</p>
+<p>&gt;Eu sei que quanto mais usamos um arquivo .MDB ele costuma ficar um
+pouco maior devido a dados tempor&aacute;rios que o Jet Database grava
+no pr&oacute;prio MDB. Para remover estes dados &eacute; s&oacute; compactar
+o banco de dados pelo Access ou pelo m&eacute;todo CompactDatabase.
+</p>
+<p>&gt;Mas o meu banco de dados esta ficando grande demais... chegando a atingis
+6.5Mb com apenas 2 ou 3 usu&aacute;rios trabalhando "para valer" no banco
+de dados.
+</p>
+<p>&gt;Minha pergunta &eacute;... isso &eacute; normal? Nas outras vers&otilde;es
+no Jet DataBase o MDB n&atilde;o ficava t&atilde;o grande assim.
+</p>
+<p>&gt;O MDB praticamente dobrou de tamanho s&oacute; de dados tempor&aacute;rios.
+Como vai ficar quando eu tiver 10 ou 15 funcion&aacute;rios usando o sistema
+ao mesmo tempo?!
+</p>
+<p>&gt;Obrigado a todos da lista.
+</p>
+<p>--------
+</p>
+<p>Oi Albuquerque.
+</p>
+<p>Em primeiro lugar obrigado pela aten&ccedil;&atilde;o.
+</p>
+<p>Esta nos meus planos migrar para o NT no futuro e uma base de dados
+mais consistente.
+</p>
+<p>O que esta me espantando no caso desse MDB &eacute; que em outra empresa
+eu criei um sistema similar usando o Access2 e nessa empresa havia tabelas
+com muito mais registros (25000) e tamb&eacute;m muito mais usu&aacute;rios
+(16 ao todo) e o MDB n&atilde;o era maior que 10Mb. Como que essa tecnologia
+pode ter involu&iacute;do no Access97?!
+</p>
+<p>Obrigado a todos!
+</p>
+<p>Cesar R. Gimenes
+</p>
+<p>---------
+</p>
+<p>Se voce esta&acute; pensando em ter mais do que 10 usuarios simultaneos,
+talvez a melhor solucao seja usar o SQL SERVER. Ele monta tabelas com acesso
+muito rapido, mesmo que o banco (muito menor que o MDB) tenha 300, 400
+Mb.
+</p>
+<p>Por exemplo, eu tenho um banco com mais de 50 tabelas, sendo a maioria
+com menos de 500 registros, duas com 12.000 e uma, especificamente, com
+mais de 100 mil registros, e tudo junto ocupa cerca de 330 Mb no servidor.
+Utilizo esta solucao (Servidor NT 4.0 + SQL Server) para 22 usuarios simultaneos,
+e um banco bem pesado. A performance e&acute; muito boa.
+</p>
+<p>Ter uma tabela como esta no formado MDB e&acute; suicidio. Voce esta&acute;
+muito sujeito a problemas. Quando voce tiver 15 funcionarios atualizando
+a tabela simultaneamente, voce tera&acute; muitos problemas de perda de
+integridade, por que o formato MDB nao funciona muito bem com um compartilhamento
+pesado como este.
+</p>
+<p>Outra solucao seria utilizar um formato de arquivo intermediario entre
+o MDB e o SQL SERVER. Por exemplo, InterServer.
+</p>
+<p>Atencisoamente,
+</p>
+<p>Sergio A. Albuquerque
+</p>
+<p>Obs.: estas mensagens foram da lista de VB da virtualand: <a href="http://www.virtualand.net/">http://www.virtualand.net/</a>
+</p>
+<p><a name="_Toc470776946"></a><b><font size="+1">Rotina para pegar o Nome
+do usu&aacute;rio da rede</font></b>
+</p>
+<p>Origem:
+</p>
+<p>Alessandro
+</p>
+<p>E-mail:
+</p>
+<p>Testado na vers&atilde;o:
+</p>
+<p>7.0
+</p>
+<p>Coment&aacute;rios:
+</p>
+<p>A rotina al&eacute;m de funcionar com sucesso nas redes Novell e Windows
+NT
+</p>
+<p>tamb&eacute;m obteve bom desempenho em redes Windows 95.
+</p>
+<p>Passos:
+</p>
+<p>1 - Crie um novo m&oacute;dulo e coloque as seguintes linhas:
+</p>
+<p>Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA"
+(ByVal lpBuffer As
+</p>
+<p>String, nSize As Long) As Long
+</p>
+<p>Public ret As Long
+</p>
+<p>Public Usu&aacute;rio As String
+</p>
+<p>2 - Salve o m&oacute;dulo com qualquer nome;
+</p>
+<p>3 - No formul&aacute;rio que voc&ecirc; tem como o primeiro a ser aberto
+junto com o banco de dados crie
+</p>
+<p>um campo com o nome "UserID" e, no evento Ao Abrir do formul&aacute;rio,
+coloque a seguinte rotina:
+</p>
+<p>Dim X As String
+</p>
+<p>'captura o nome do usuario logado na rede
+</p>
+<p>Usu&aacute;rio = String(255, 0)
+</p>
+<p>ret = GetUserName(Usu&aacute;rio, Len(Usu&aacute;rio))
+</p>
+<p>'elimina os nulos da variavel Usu&aacute;rio
+</p>
+<p>X = 1
+</p>
+<p>Do While Asc(Mid(Usu&aacute;rio, X, 1)) &lt;&gt; 0
+</p>
+<p>X = X + 1
+</p>
+<p>Loop
+</p>
+<p>Usu&aacute;rio = Left(Usu&aacute;rio, (X - 1))
+</p>
+<p>UserID = Usu&aacute;rio
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><b><font size="+1">Access 97 em rede: com quantos micros ele tem capacidade
+de trabalhar?</font></b>
+</p>
+<p>&gt;
+</p>
+<p>&gt; Ouvi um boato de que o Access 2 (na &eacute;poca) trabalhava com pequenas
+redes
+</p>
+<p>&gt; de ate 11 micros, mas n&atilde;o tenho certeza e no Access 97 talvez
+seja
+</p>
+<p>&gt; diferente!
+<br>
+&nbsp;
+<br>
+&nbsp;
+
+</p>
+<p>Dividindo-se o banco de dados em dois (Back-End e Front-End) at&eacute;
+20 esta&ccedil;&otilde;es
+</p>
+<p>roda sem problemas, desde que suas tabelas n&atilde;o sejem extensas
+em volume de
+</p>
+<p>dados. J&aacute; tive a experi&ecirc;ncia em implantar sistemas nesta
+configura&ccedil;&atilde;o em
+</p>
+<p>Access97.
+</p>
+<p>No Access2000 com a inclus&atilde;o do acesso &agrave; base de dados
+em SQL7 este limite
+</p>
+<p>praticamente n&atilde;o existe.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p>Abra&ccedil;os,
+</p>
+<p>Vagner Izaias Ferreira
+</p>
+<p>Vagner'Soft Inform&aacute;tica Ltda.
+</p>
+<p>--------
+</p>
+<p>Assunto:
+</p>
+<p>Re: Com quantos micros o Access97 pode trabalhar em rede?
+</p>
+<p>Data:
+</p>
+<p>Tue, 21 Dec 1999 09:57:38 -0200
+</p>
+<p>De:
+</p>
+<p>"Juninho" &lt;shopcomp@zaz.com.br&gt;
+</p>
+<p>Para:
+</p>
+<p>"Ribamar FS" &lt;ribafs@yahoo.com&gt;
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p>O Access 97 comporta sen&atilde;o me engano at&eacute; 25 computadores
+em rede.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776947"></a><b><font size="+1">Coment&aacute;rios Sobre
+BDs no Access</font></b>
+</p>
+<p>N&atilde;o seria o caso de vc pensar em migrar para SQL SERVER??
+</p>
+<p>Sim...
+</p>
+<p>O problema &eacute; que o CEO da empresa exigiu que eu usasse o Access97.
+Nem trabalhar com o VB5 (que &eacute; a minha vontade) eu posso. Bom o
+jeito foi montar tudo no pr&oacute;prio Access, o programa esta ficando
+legal embora um pouco lento nas maquinas mais desmemoriadas. A &uacute;nica
+defici&ecirc;ncia que eu encontrei programando no Access &eacute; que ele
+n&atilde;o pode usar o operador AddressOf que no VB &eacute; usado para
+fazer os famosos CallBacks. ...&Uacute;nica defici&ecirc;ncia alem das
+que eu j&aacute; esperava :-)... Por enquanto n&atilde;o tive problemas
+de banco de dados corrompido ou truncado (para falar a verdade eu tinha
+muito desse tipo de problema nos velhos tempos do Clipper)
+</p>
+<p>&gt;Eu tenho um caso em que fui for&ccedil;ado a mudar... Usando apenas
+MDB, o BD se corrompia a toda hora, e isso n&atilde;o acontece mais usando
+o SQL SERVER. &gt;A configura&ccedil;&atilde;o nesse caso era para 10 usu&aacute;rios.
+Al&eacute;m do mais, o SQL SERVER d&aacute; muito mais op&ccedil;&otilde;es.
+</p>
+<p>Sim eu acho uma boa.
+</p>
+<p>O problema &eacute; que at&eacute; isso passar pela etapa de O&amp;M
+vai levar no m&iacute;nimo um ano.
+</p>
+<p>&gt;Sugiro que vc d&ecirc; uma olhada na edi&ccedil;&atilde;o desse m&ecirc;s
+da revista FORUM ACCESS.
+</p>
+<p>Legal ... Vou sim!
+</p>
+<p>Quanto ao tamanho do banco de dados, cada vez que eu adiciono um usu&aacute;rio
+ele fica mais obeso, ainda mais agora que eu tenho um usu&aacute;rio trabalhando
+remotamente via rede Dial-Up. (Deus tenha piedade da minha alma)
+</p>
+<p>Obrigado Takahashi!
+</p>
+<p>Obrigado tamb&eacute;m a todos os amigos das listas. Cesar R. Gimenes
+</p>
+<p>net.runner@u-netsys.com.br
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><a name="_Toc470776948"></a><b><font size="+1">Como saber o "Login Name"
+do usu&aacute;rio corrente</font></b>
+</p>
+<p>Aplicativos: Visual Basic 3.0 32bits, Visual Basic 5.0, Office 95 e
+97.
+</p>
+<p>Introdu&ccedil;&atilde;o
+</p>
+<p>Muitos sistemas possuem um m&oacute;dulo de seguran&ccedil;a, onde os
+usu&aacute;rios cadastrados se identificam com seu "User Name" e uma senha
+para que o sistema possa saber as permiss&otilde;es de cada um dos usu&aacute;rios.
+</p>
+<p>Se o ambiente onde o sistema estiver sendo executado for de rede, &eacute;
+poss&iacute;vel aproveitar o login da rede para saber quem &eacute; o usu&aacute;rio.
+Desta forma, o usu&aacute;rio n&atilde;o necessita se identificar na entrada
+do sistema. Para saber qual o usu&aacute;rio corrente, &eacute; usada uma
+fun&ccedil;&atilde;o da API do Windows chamada GetUserName.
+</p>
+<p>Como Fazer?
+</p>
+<p>Para usar a fun&ccedil;&atilde;o GetUserName, &eacute; necess&aacute;rio
+declar&aacute;-la com a seguinte sintaxe:
+</p>
+<p>Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA"
+(ByVal lpBuffer As String, nSize As Long) As Long
+</p>
+<p>Como pode ser visto, esta fun&ccedil;&atilde;o possui 2 par&acirc;metros:
+lpBuffer, que &eacute; a vari&aacute;vel que receber&aacute; o "login name"
+e nSize, que &eacute; o tamanho em bytes da v&aacute;riavel que receber&aacute;
+o "login name".
+</p>
+<p>Se a fun&ccedil;&atilde;o retornar zero, o processo falhou, caso contr&aacute;rio,
+est&aacute; tudo OK.
+</p>
+<p>Exemplo:
+</p>
+<p>Function NomeUsuario()
+</p>
+<p>Dim strNomeUsuario As String
+</p>
+<p>Dim lngTamanhoString As Long
+</p>
+<p>Dim lngRetorno As Long
+</p>
+<p>lngRetorno = GetUserName(strNomeUsuario, lngTamanhoString)
+</p>
+<p>If lngRetorno &lt;&gt; 0 then
+</p>
+<p>strNomeUsuario = String(lngTamanhoString, " ")
+</p>
+<p>lngRetorno = GetUserName(strNomeUsuario, lngTamanhoString)
+</p>
+<p>strNomeUsuario = Left$(strNomeUsuario, lngTamanhoString - 1)
+</p>
+<p>NomeUsuario = strNomeUsuario
+</p>
+<p>Else
+</p>
+<p>MsgBox "A busca do Nome do Usu&aacute;rio falhou!!!"
+</p>
+<p>End If
+</p>
+<p>End Function
+</p>
+<p>Vamos analisar alguns pontos importantes deste exemplo:
+</p>
+<p>Como visto, a fun&ccedil;&atilde;o foi chamada duas vezes. Isto &eacute;
+feito para primeiramente saber o tamanho da string que deve ser passada.
+Este tamanho &eacute; retornado na vari&aacute;vel passada (lngTamanhoString).
+Sabendo este tamanho, basta preencher a string que receber&aacute; o "login
+name":
+</p>
+<p>strNomeUsuario = String(lngTamanhoString, " ")
+</p>
+<p>Quando tudo ocorre normalmente, basta em seguida usar o n&uacute;mero
+retornado pela fun&ccedil;&atilde;o na vari&aacute;vel de tamanho, que
+corresponde ao tamanho da string com o caractere nulo terminal. Como n&atilde;o
+desejamos o caractere nulo terminal pegamos todos menos ele:
+</p>
+<p>strNomeUsuario = Left$(strNomeUsuario, lngTamanhoString - 1)
+</p>
+<p>Conslus&atilde;o
+</p>
+<p>Tendo o "login name", basta pegar as permiss&otilde;es armazenadas normalmente
+em um banco de dados com todos os "login names" cadastrados.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+<p><b><font size="+1">Utilizar o VB com banco de dados do MS Access em ambiente
+multiusu&aacute;rio</font></b>
+</p>
+<p>Resposta do Marcus Vin&iacute;cius: Normalmente. Para o MsAccess &eacute;
+indiferente se voc&ecirc; est&aacute; utilizando acesso multiusu&aacute;rio
+ou n&atilde;o. Voc&ecirc; deve tomar cuidado, somente com os comandos de
+rede. tais como:
+</p>
+<p>Commit, Trans - Para efetivar / Rollback - Para desfazer / On error
+- para tratar erros de acesso e semelhantes.
+<br>
+&nbsp;
+</p>
+<p>
+</p>
+<hr width="100%">
+</body>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/redes.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:56:20 GMT -->
+</html>

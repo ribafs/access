@@ -1,0 +1,525 @@
+		USO PRÁTICO DO DAO - DATA ACCESS OBJECT
+
+	Uma abordagem com a tentativa de simplificar o uso destes
+recursos tão úteis na construção de um sistema bem feito.
+
+	Uso principalmente de Recordsets, que são conjuntos
+de registros de uma ou mais tabelas, consultas ou consulta SQL.
+
+
+MÉTODO AddNew
+Este método adiciona um novo registro a um Recordset
+
+Dim d As Database
+Dim r As Recordset
+
+Set d = CurrentDb
+Set r = d.OpenRecordset("tblClientes", dbOpenDynaset)
+
+r.AddNew
+r!Código = Me!Código	'Aqui o Campo Código da Tabela (r!Código) recebe o conteúdo do Campo Código do Formulário (Me!Código)
+r!Nome = Me!Nome
+r!Fone = Me!Fone
+r.Update	'Aqui ele salva o registro
+r.Close
+Set d = Nothing	   'Remove o BD da RAM
+
+
+PROPRIEDADES BEGINTRANS, COMMITTRANS e ROLLBACK
+
+BeginTrans - Inicia uma transação do Banco de Dados
+ComminTrans - Salva as alterações feitas
+RollBack - Desfaz as alterações, mesmo deois que já tenham sido salvas com o Update
+
+Dim w As Workspace
+Dim d As Database
+Dim r As Recordset
+Dim Trans As Boolean
+
+On Error GoTo Erro
+
+Trans = False
+Set w = DBEngine.Workspace(0)	'Referir-se ao Workspace padrão
+Set d = CurrentDb	'Banco de Dados corrente
+Set r = d.OpenRecordset("Clientes", dbOpenTable)
+w.BeginTrans
+Trans = True
+r.MoveFirst    'Garantir que iniciará no primeiro registro
+Do Until r.EOF	 'Fazer enquanto não chegar ao final da Tabela
+	If r!Nome = "Antônio Brito" Then
+		Me!Nome = r!Nome
+		Msg = MsgBox("Confirma alteração", vbYesNo, "Confirmação")
+		If msg = vbYes Then
+			r.Edit   'Abre para alterações
+			r!Nome = "João Batista"
+			r.Update
+		End If
+	End If
+	r.MoveNext	'Mover para o próximo registro
+Loop
+If MsgBox("Salvar alterações?", vbQuestion + vbYesNo, "Salvar") = vbYes Then
+	w.CommitTrans	'Salva alterações
+Else
+	w.RollBack	'Desfaz alterações
+End If
+
+Sair:
+	r.Close
+	Set d = Nothing
+	Set w = Nothing
+	Exit Sub
+Erro:
+	MsgBox "Erro"
+	If Trans Then
+		w.RollBack
+	End If
+	Resume Sair
+End Sub
+
+
+MÉTODOS Update e CancelUpdate
+
+Sub NewReg(d As Database, r As Recordset)
+	Set d = CurrentDb
+	Set r = d.OpenRecordset("Clientes")
+	With r
+		.AddNew		'Adiciona um novo registro ao final da Tabela
+		!Código = 8
+		!Nome = "José Osvaldo"
+		!Fone = "4912786"
+	End With
+If MsgBox("Salvar alterações?", vbYesNo) = vbYes Then
+	r.Update	'Salva
+	MsgBox "Registro adicionado com sucesso"
+Else
+	r.CancelUpdate		'Cancela cadastramento
+End If
+r.Close
+Set d = Nothing
+
+
+MÉTODO CompactDatabase
+Fazer a compactação do Banco de Dados. Muito útil para reduzir o tamanho
+do Banco após manipulações e torná-lo mais rápido
+
+Dim d As Database
+Set d = OpenDatabase("c:\teste.mdb")
+DBEngine.CompactDatabase d,d
+MsgBox "Sistema compactado com sucesso!"
+DoCmd.Quit
+
+MÉTODO RepairDatabase
+
+DBEngine.RepairDatabase "c:\teste.mdb"
+MsgBox "Sistema reparado com sucesso!"
+DoCmd.Quit
+
+MÉTODO CreateQuerydef
+
+Dim d As Database
+Dim q As QueryDef
+Dim s As String
+Set d = CurrentDb
+s = "SELECT * FROM Clientes WHERE [Bairro] = 'Montese'"
+Set q = d.CreateQueryDef("Clientes do Montese", s)
+DoCmd.OpenQuery q.Name
+Set d = Nothing
+
+
+MÉTODO Edit
+Altera dados de um Recordset
+
+Sub TrocaBairro(d As Database, r As Recordset, Criterio As String, sBairro As String)
+	Set d = CurrentDb
+	Criterio = "Bairro = 'Montese'"
+	sBairro = "Parquelândia"
+	Set r = d.OpenRecordset("Clientes", dbOpenDynaset)
+	r.FindFirst Criterio
+	
+	Do Until r.NoMatch
+		With r
+			.Edit
+			!Bairro = sBairro
+			.Update
+			.FindNext Criterio
+		End With
+	Loop
+	r.Close
+	Set d = Nothing
+End Sub
+
+
+CONSULTA ATUALIZAÇÃO
+Esta consulta tem a mesma finalidade do Método Edit, sendo que é
+mais eficiente.
+
+Sub TrocaBairro(d As Database, s As String)
+	Set d = CurrentDb
+	s = "UPDATE Clientes SET Bairro = 'Parquelândia'" _
+		& "WHERE Bairro = 'Montese'"
+	d.Execute s
+	MsgBox d.RecordsAffected
+	Set d = Nothing
+End Sub
+
+Obs.: A sintaxe é tipo:
+UPDATE NomeTab SET RegistroASubstituir WHERE RegistroOuExprASerSubstituido
+
+
+MÉTODO Execute
+(QueryDef e CreateQueryDef)
+
+Dim d As Database, q As QueryDef, s As String
+Set d = CurrentDb
+s = "UPDATE Clientes SET Bairro = 'Parquelândia'" _
+	& "WHERE Bairro = 'Montese';"
+Set q = d.CreateQueryDef("Atualização de Bairros", s)
+q.Execute
+MsgBox q.RecordsAffected
+Set d = Nothing
+
+
+MÉTODOS FindFirst, FindLast, FindNext e FindPrevious
+
+Sub EncontraCliente(d As Database, r As Recordset, Criterio As String)
+	Set d = CurrentDb
+	Criterio = "[Nome] = 'João Brito' AND [DataNascimento] = #08-03-56#"
+	Set r = d.OpenRecordset("Clientes", dbOpenDynaset)
+	r.FindFirst Criterio
+	If r.NoMatch Then
+		MsgBox "Nenhum registro!"
+	Else
+		Do Until r.NoMatch
+			MsgBox r!Nome & " " & r![DataNascimento]
+			r.FindNext Criterio
+		Loop
+	End If
+	r.Close
+	Set d = Nothing
+End Sub
+
+EXEMPLO2
+
+Usando Campos Data em Critérios no FindFirst
+
+Dim d As Database
+Drm r As Recordset
+
+Set d = CurrentDb
+Set r = d.OpenRecordset("Clientes", dbOpenDynaset)
+r.FindFirst "DataRepost = #" & NomeCampo & "#"
+If r.NoMatch = True Then
+	MsgBox "Não encontrado"
+Else
+	MsgBox "Registro encontrado"
+End If
+
+
+MÉTODO Move
+Move para outros registros num Recordset
+
+Sub Move2RegitrosParaFrente()
+	Dim d As Database, r As Recordset, Criterio As String
+
+	Set d = CurrentDb
+	Set r = d.OpenRecordset("SELECT * FROM Clientes " _
+		& "ORDER BY Nome;")
+	r.MoveLast
+	r.MoveFirst
+	If r.RecordCount > 2 Then
+		r.Move 2
+		MsgBox r!Nome
+	End If
+	r.Close
+	Set d = Nothing
+End Sub
+
+
+MÉTODOS MoveFirst, MoveLast, MoveNext e MovePrevious
+Mover para um determinado registro
+
+Sub MoverAtravesDosRegistros()
+	Dim d As Database, r As Recordset, intI As Integer, Numero As String
+	
+	Set d = CurrentDb
+	Set r = dbs.OpenRecordset("Clientes")
+	r.MoveLast
+	r.MoveFirst
+	Numero = InputBox("Insira um número menor que " _
+		& r.RecordCount & ".")
+	For intI = 1 To Numero
+		r.MoveNext
+	Next intI
+	MsgBox r!Nome
+	r.Close
+	Set d = Nothing
+End Sub
+
+
+MÉTODO OpenRecordset
+
+	Dim d As Database, r As Recordset, sSQL As String
+
+	Set d = CurrentDb
+	sSQL = "SELECT * FROM Clientes WHERE [Bairro] = 'Montese'"
+	Set r = d.OpenRecordset(sSQL)
+	r.MoveLast
+	MsgBox r.RecordCount
+	r.Close
+	Set d = Nothing
+
+
+MÉTODO Seek
+Procurar um registro num Recordset através de um critério
+
+Private Sub Form_Unload(Cancel As Integer)
+    Dim d As Database, r As Recordset
+    
+    Set d = CurrentDb
+    Set r = dbs.OpenRecordset("ItensDeObras", dbOpenTable)
+    'PrimaryKey é o nome da Chave na Tabela
+    r.Index = "PrimaryKey"
+    'A chave é composta de 3 Campos
+    r.Seek "=", r![Código da Obra], r![Código do Cliente], r![Código do aditivo]
+    
+    If r.NoMatch Then
+        MsgBox "Nada cadastrado"
+    Else
+        'Adicionar um novo registro
+        r.AddNew
+        r![Código da Obra] = Me.Código_da_Obra
+        r![Código do Cliente] = Me.Código_do_Cliente
+        r![Código do aditivo] = "0"
+        If Me.Código_do_Cliente <> 0 Then
+            'Salvar apenas se o Código do Cliente no Formulário não for 0
+            r.Update
+        End If
+    End If
+    r.Close
+    Set d = Nothing
+End Sub
+
+EXEMPLO2
+
+Private Sub Form_Open(Cancel As Integer)
+    Dim d As Database
+    Dim r As Recordset
+    Dim procurar As Long
+    
+    Set d = CurrentDb
+    Set r = d.OpenRecordset("tblPedirConf")
+    'PrimaryKey é o nome da Chave na Tabela
+    r.Index = "PrimaryKey"
+
+Voltar:
+    procurar = InputBox("Digote o código!")
+    r.Seek "=", procurar
+    
+    If r.NoMatch Or IsNull(procurar) Then
+        MsgBox "Código não existente"
+        GoTo Voltar
+    Else
+        r.Edit
+        Me!Código = r![Código]
+        Me!Nome = r![Nome]
+        Me!Fone = r![Fone]
+        r.Update
+    End If
+    r.Close
+    Set d = Nothing
+End Sub
+
+
+PROPRIEDADE AbsolutePosition
+Determina a posição ordinal de um registro
+
+	Dim d As Database, r As Recordset
+
+	Set d = CurrentDb
+	Set r = d.OpenRecordset("SELECT * FROM Clientes WHERE " _
+		& "DataNascimento >= #3-8-56#;")
+	r.FindFirst "Bairro = 'Serrinha'"
+        'A posição ordinal 
+	MsgBox r.AbsolutePosition
+
+	r.Close
+	Set d = Nothing
+
+
+PROPRIEDADES BOF e EOF
+BOF - Begin Of File (início do arquivo, ou seja, do recordset)
+EOF - End Of File (final do arquivo)
+
+	Dim d As Database, r As Recordset,sMsg As String
+
+	Set d = OpenDatabase("Teste.mdb")
+	Set r = d.OpenRecordset("Clientes",dbOpenSnapshot)
+
+	With r
+		'Popular o Recordset.
+		.MoveLast
+		.MoveFirst
+
+		Do While True
+			'Exibe informações sobre o Registro atual e recebe
+			'a entrada do usuário
+			sMsg = "Nome: " & !Nome & _
+				vbCrLf & "(registro " & (.AbsolutePosition + 1) & _
+				" de " & .RecordCount & ")" & vbCrLf & vbCrLf & _
+				"1 - Adiantar, 2 - Voltar:"
+
+			'Mover para frente ou para traz e guarde em BOF ou EOF.
+			Select Case InputBox(sMsg)
+				Case 1
+					.MoveNext
+					If .EOF Then
+						MsgBox _
+							"Final do arquivo!" & vbCr & _
+							"Ponteiro movendo para o último registro."
+						.MoveLast
+					End If
+				Case 2
+					.MovePrevious
+					If .BOF Then
+						MsgBox _
+							"Início do arquivo!" & vbCr & _
+							"Ponteiro movendo para o primeiro registro."
+						.MoveFirst
+					End If
+				Case Else
+					Exit Do
+			End Select
+		Loop
+		.Close
+	End With
+	d.Close
+
+
+PROPRIEDADE Count
+Retorna um inteiro com o total de objetos de uma coleção: Tabelas, Campos, Registros, etc.
+
+	Dim d As Database, t As TableDef, f As Field
+
+	Set d = CurrentDb
+	Set t = d.TableDefs!Clientes
+	MsgBox t.Fields.Count
+	For Each f In t.Fields
+		MsgBox f.Name
+	Next f
+	Set d = Nothing
+
+
+PROPRIEDADE RecordCount
+Mostra a quantidade de Registros de um Recordset
+
+	Dim d As Database, r As Recordset
+
+	Set d = CurrentDb
+	Set r = d.OpenRecordset("Clientes")
+	MsgBox r.RecordCount
+	r.Close
+	Set d = Nothing
+
+
+PROPRIEDADE SQL
+Consulta Parâmetro
+
+	Dim d As Database, q As QueryDef, r As Recordset
+
+	Set d = CurrentDb
+	Set q = d.CreateQueryDef("Vendas")
+	q.SQL = "PARAMETERS [Início] DATETIME, [Fim] DATETIME; " & _
+		"SELECT * FROM Vendas WHERE DataDaVenda BETWEEN " _
+		& "[Início] AND [Fim];"
+	q.Parameters("Início") = #17/08/99#
+
+	q.Parameters("Fim") = #20/08/99#
+	Set r = q.OpenRecordset(dbOpenSnapshot)
+		r.RecordCount
+	r.Close
+	Set d = Nothing
+
+
+ROTINAS PARA LOOPS EM RECORDSETS
+
+'Economiza digitação
+With r	'Pode ser Recordset, TableDef ou outro
+	.AddNew
+	!Nome
+	.
+	.
+	.
+	.Update
+End With
+
+		-----------------------
+
+For Each fldLoop In t.Fields
+	MsgBox fldLoop.Name
+	For Each prpLoop In fldLoop.Properties
+		MsgBox prpLoop.Name & " - " & _
+				IIf(prpLoop = "", "[empty]", prpLoop)
+	Next prpLoop
+Next fldLoop
+
+r.MoveFirst
+Do While Not .EOF
+	sMsg = sMsg & " " & !Nome & vbCr
+	r.Edit
+	r!Cidade = "Fortaleza"
+	r.Update
+	r.MoveNext
+Loop
+
+		-----------------------
+	With r
+		Do While Not .EOF
+			MsgBox .Fields(0) & .Fields(1)
+			.MoveNext
+		Loop
+	End With
+
+		-----------------------
+
+MOVER PARA QUALQUER REGISTRO
+
+Sub MoveQQuer(intEscolha As Integer, rTemp As Recordset)
+	With rTemp
+		Select Case intEscolha
+			Case 1
+				.MoveFirst
+			Case 2
+				.MoveLast
+			Case 3
+				.MoveNext
+				If .EOF Then
+					MsgBox "Já está no final do Recordset!"
+					.MoveLast
+				End If
+			Case 4
+		.MovePrevious
+				If .BOF Then
+					MsgBox "Já está no começo do Recordset!"
+					.MoveFirst
+				End If
+		End Select
+	End With
+End Sub
+
+
+PROCURAR POR QUALQUER REGISTRO
+Function ProcQQuer(intEscolha As Integer, rTemp As Recordset, sProc As String) As Boolean
+	Select Case intEscolha
+		Case 1
+			rTemp.FindFirst sProc
+		Case 2
+			rTemp.FindLast sProc
+		Case 3
+			rTemp.FindNext sProc
+		Case 4
+			rTemp.FindPrevious sProc
+	End Select
+	ProcQQuer = IIf(rTemp.NoMatch, False, True)
+End Function
+------------------------------------
+http://www.ribafs.hpg.com.br/access/

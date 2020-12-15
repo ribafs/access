@@ -1,0 +1,32 @@
+Public Function FormsCarg()
+    'Esta função verifica se já existem mais de 2 formulários 
+    'carregados, caso exista ela dá um aviso de alerta.
+
+    'Criar uma Variável pública num módulo com nome EstaCar
+    'Public EstaCar As Integer
+    'No evento Ao abrir de cada Formulário escrever =FormsCarg()
+
+    'Lembrando que EstáCarregado é uma função que acompanha o
+    'exemplo do Access Northwind e deve ser copiada para um módulo
+    
+    Dim Cont As Integer
+    If EstáCarregado("Cliente") Then
+            Cont = Cont + 1
+    End If
+    If EstáCarregado("Bancos") Then
+            Cont = Cont + 1
+    End If
+    If EstáCarregado("ContasPagar") Then
+            Cont = Cont + 1
+    End If
+    If EstáCarregado("ContasReceber") Then
+            Cont = Cont + 1
+    End If
+
+    'Assim você coloca todos os Formulários do Sistema
+
+    If Cont >= 3 Then
+        Beep
+        MsgBox "Você já tem 2 ou mais formulários abertos, cuidado para não sobrcarregar o micro. Feche os que não estiver utilizando. Ctrl+F6 vê os outros.", vbCritical, "Aviso de Sobrecarga de Formulários!"
+    End If
+End Function

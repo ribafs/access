@@ -1,0 +1,852 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html lang="pt-br">
+
+<!-- Mirrored from www.psantos.org/ribafs/access/sqlpratico.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  <meta name="Author" content="Ribamar FS">
+
+  <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+  <title>Cantinho dos Amantes do Access - SQL Pr&aacute;tico</title>
+
+
+</head>
+
+
+
+
+<body>
+
+<table border="1" cols="8" width="100%">
+
+  <tbody>
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="introducao.html">Introdu&ccedil;&atilde;o</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="tabelas.html">Tabelas</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="relacionamentos.html">Relacionamentos</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="consultas.html">Consultas</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="formularios.html">Formul&aacute;rios</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="relatorios.html">Relat&oacute;rios</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="macros.html">Macros</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="modulos.html">M&oacute;dulos</a></font></center>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="activex.html">ActiveX</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="automacao.html">Automa&ccedil;&atilde;oOLE</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="graficos.html">Gr&aacute;ficos</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dao.html">DAO</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="sql.html">SQL</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="seguranca.html">Seguran&ccedil;a</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="redes.html">Redes/ODBC</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dicas.html">Dicas</a></font></center>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="cursoonline.html">Curso
+Online</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="wizards.html">Wizards</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="ferramentas.html">Ferramentas</a></font></center>
+
+      </td>
+
+      <td>
+      <center><font size="-1"><a href="help.html">Help</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="downloads.html">Downloads</a></font></center>
+
+      </td>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="links.html">Links</a></font></center>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<center>
+<p><b><font color="#000099"><font size="+2">SQL
+Pr&aacute;tico</font></font></b></p>
+
+</center>
+
+<hr width="100%">
+<br>
+
+&nbsp;&nbsp;&nbsp; Com a inten&ccedil;&atilde;o de
+facilitar a compreens&atilde;o
+desta poderosa e &uacute;til ferramenta de Banco de Dados, eu venho
+trazer
+alguns exemplos pr&aacute;ticos e algumas
+observa&ccedil;&otilde;es sobre
+a SQL.
+<br>
+
+&nbsp;
+<p><b><font size="+1">SQL - Structured Query
+Language - Linguagem Estruturada
+de Consulta</font></b>
+</p>
+
+<p>&Eacute; a&nbsp; linguagem de consultas, utilizada
+para criar os mais
+diversos&nbsp; tipos de consultas, que podem ser muito
+&uacute;teis e poderosas.
+<br>
+
+"O principal problema experimentado por programadores no aprendizado
+da SQL &eacute; que devem desaprender as outras linguagens."
+(INSTANT SQL
+Programming - Joe Celko)
+</p>
+
+<p>"O SQL &eacute; uma linguagem declarativa, daquelas que
+voc&ecirc; diz
+ao computador o que deseja que ele fa&ccedil;a e esquece os
+detalhes, preocupa-se
+apenas com os resultados." (INSTANT SQL Programming - Joe Celko)
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">COMO
+VISUALIZAR O C&Oacute;DIGO
+SQL NO ACCESS?</font></font></b></p>
+
+</center>
+
+<p>&Eacute; poss&iacute;vel visualizar ou escrever
+<br>
+
+consultas do Microsoft Access como instru&ccedil;&otilde;es
+SQL:
+</p>
+
+<p>- Na janela QBE da Consulta
+<br>
+
+- Menu Exibir
+<br>
+
+- Clicar em SQL
+<br>
+
+- Pronto, est&aacute; na janela de c&oacute;digo SQL
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">COMO
+CRIAR UMA CONSULTA SQL NO
+ACCESS?</font></font></b></p>
+
+</center>
+
+<p>Para criar uma nova Conslta SQL:
+</p>
+
+<p>- Clique em Novo
+<br>
+
+- Consulta
+<br>
+
+- Modo Estrutura
+<br>
+
+- Tecle Esc para fechar a janela Mostrar tabela
+<br>
+
+- Menu Exibir
+<br>
+
+- Clicar em SQL
+<br>
+
+- Pronto, est&aacute; no editor de SQL
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">ONDE
+USAR UMA CONSULTA SQL NO
+ACCESS?</font></font></b></p>
+
+</center>
+
+<p>Podemos usar instru&ccedil;&otilde;es SQL SELECT onde
+o Access aceite
+um nome
+<br>
+
+de tabela, de consulta ou de campo. Para gerar uma lista de itens em
+uma
+<br>
+
+Caixa de listagem, voc&ecirc; pode definir a propriedade
+<br>
+
+Origem do Controle da caixa de listagem com uma
+<br>
+
+instru&ccedil;&atilde;o SQL SELECT. Tab&eacute;m pode criar
+uma Consulta
+puramente
+<br>
+
+SQL e salvar como consulta, depois criar um Formul&aacute;rio ou um
+<br>
+
+Relat&oacute;rio baseado nesta Consulta. Podem os usar
+tamb&eacute;m
+em
+<br>
+
+fun&ccedil;&otilde;es agregadas, caixas de
+cobina&ccedil;&atilde;o
+(quando usamos os
+<br>
+
+assistentes para estes controles ou em Pesquisas), origem da
+<br>
+
+linha destes 2 controles como argumento Condi&ccedil;&atilde;o
+Onde
+da a&ccedil;&atilde;o
+<br>
+
+AbrirFormul&aacute;rio ou AplicarFiltro, como argumento de
+dom&iacute;nio
+ou crit&eacute;rio
+<br>
+
+em uma fun&ccedil;&atilde;o agregada de dom&iacute;nio ou
+como defini&ccedil;&atilde;o
+para as propriedades
+<br>
+
+Origem do Registro ou Origem da Linha.
+</p>
+
+<p><b><font size="+1">INSTRU&Ccedil;&Otilde;ES
+SQL</font></b>
+</p>
+
+<p>Uma Instru&ccedil;&atilde;o SQL &eacute; utilizada
+no Access como uma
+String ou sequ&ecirc;ncia
+<br>
+
+de caracteres.
+</p>
+
+<p><b>SELECT</b> - Obt&eacute;m um grupo de
+registros e insere os registros
+em um dynaset ou em uma tabela
+<br>
+
+<b>UPDATE</b> - Define os valores dos campos de uma tabela
+em uma atualiza&ccedil;&atilde;o
+<br>
+
+<b>TRANSFORM</b> - Cria uma tabela de resumo, utilizando o
+conte&uacute;do
+de um campo como cabe&ccedil;alho de cada coluna
+<br>
+
+<b>DELETE FROM</b> - Remove registros de uma tabela
+<br>
+
+<b>INSERT INTO</b> - Acrescenta um grupo de registros a uma
+tabela.
+<br>
+
+</p>
+
+<hr width="100%">
+<center><b><font color="#000080"><font size="+2">TRABALHANDO EM ESTRUTURAS
+DE TABELAS</font></font></b>
+<br>
+
+<b><font color="#ff0000"><font size="+1">CREATE
+TABLE</font></font></b></center>
+
+<p>Criando a estrutura f&iacute;sica (Os Campos) de uma
+Tabela.&nbsp; Com
+um Campo Chave Prim&aacute;ria (C&oacute;digo) do tipo Inteiro
+e dois outros
+Campos do tipo Texto.
+</p>
+
+<p>CREATE TABLE ClientesSQL (Nome TEXT, Fone TEXT,
+C&oacute;digo INTEGER
+<br>
+
+CONSTRAINT RestrictCamp PRIMARY KEY);
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">ALTER
+TABLE</font></font></b></p>
+
+</center>
+
+<p>Alterando a estrutura de uma Tabela.
+</p>
+
+<p>Adicionando um Campo
+</p>
+
+<p>ALTER TABLE Clientes ADD COLUMN Email TEXT;
+</p>
+
+<p>Removendo um Campo
+</p>
+
+<p>ALTER TABLE Funcion&aacute;rios DROP COLUMN Cargo;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">DROP TABLE</font></font></b></center>
+
+<p>Excluindo uma Tabela
+</p>
+
+<p>DROP TABLE Clientes;
+</p>
+
+<p>DROP INDEX PrimaryKey ON Clientes;
+</p>
+
+<center>
+<hr width="100%">&nbsp;<b><font color="#000099"><font size="+2">TRABALHANDO
+COM OS DADOS</font></font></b>
+<br>
+
+<b><font color="#ff0000"><font size="+1">INSTRU&Ccedil;&Atilde;O
+SELECT</font></font></b></center>
+
+<p>Esta &eacute; a instru&ccedil;&atilde;o
+onipresente da SQL.
+</p>
+
+<p>Estes exemplos abaixo poodem ser transformados em Consulta do
+Access:
+<br>
+
+digitar na grade QBE e salvar como consulta.
+</p>
+
+<p>"A instru&ccedil;&atilde;o SELECT &eacute;
+respons&aacute;vel por consultar
+o Banco de Dados e retornar o
+<br>
+
+as informa&ccedil;&otilde;es requeridas pelo programador."
+(INSTANT
+SQL Programming - Joe Celko)
+</p>
+
+<p><b>Sintaxe</b>
+</p>
+
+<p><i>SELECT [[ALL] | DISTINCT]
+{&lt;ListaDeColunasOuExpress&atilde;o&gt;|*}</i>
+<br>
+
+<i>FROM &lt;NomeTabels&gt;</i>
+<br>
+
+<i>[WHERE&lt;Condi&ccedil;&atilde;oDeBusca&gt;];</i>
+</p>
+
+<p><b><font size="+1">CRIANDO UMA NOVA
+CONSULTA SQL</font></b>
+</p>
+
+<p>Consulta - Novo - Modo Estrutura - Tecle Esc - Exibir -
+<br>
+
+Modo SQL - Cole o c&oacute;digo e Salve.
+</p>
+
+<p><b><font size="+1">EXECUTANDO A CONSULTA</font></b>
+</p>
+
+<p>Execute a Consulta (Clique no ponto de
+interroga&ccedil;&atilde;o).
+</p>
+
+<p><b><font size="+1">SELECIONAR TODOS OS
+NOMES E TELEFONES DE CLIENTES</font></b>
+</p>
+
+<p>SELECT Nome, Fone FROM Clientes;
+</p>
+
+<p><b><font size="+1">SELECIONE TODA A TABELA
+CLIENTES</font></b>
+</p>
+
+<p>SELECT * FROM Clientes;
+</p>
+
+<p><b><font size="+1">SELECIONAR APENAS
+CLIENTES DISTINTOS - REMOVER DUPLICADOS</font></b>
+</p>
+
+<p>SELECT DISTINCT * FROM Clientes;
+</p>
+
+<p><b><font size="+1">CONTAR CLIENTES COM
+TELEFONE E MUDAR NOME DO CAMPO</font></b>
+</p>
+
+<p>SELECT Count([Fone Residencial]) AS [Clientes com Fone] FROM
+Clientes;
+</p>
+
+<p><b><font size="+1">REAJUSTAR TODOS OS
+PRODUTOS EM 3%</font></b>
+</p>
+
+<p>SELECT Produto, PUnit&aacute;rio AS Pre&ccedil;oAtual,
+PUnit&aacute;rio
+* 1.03 AS Pre&ccedil;oReajustado
+<br>
+
+FROM tblProdutos;
+</p>
+
+<p><b><font size="+1">QUANTIDADE, O
+PRE&Ccedil;O UNIT&Aacute;RIO M&Aacute;XIMO
+E A M&Eacute;DIA DOS PRE&Ccedil;OS UNIT&Aacute;RIOS</font></b>
+</p>
+
+<p>SELECT Count(*) AS [Total de Produtos],
+Avg(Pre&ccedil;oUnit&aacute;rio)
+AS [Pre&ccedil;o Unit&aacute;rio M&eacute;dio],
+<br>
+
+Max(Pre&ccedil;oUnit&aacute;rio) AS [Pre&ccedil;o
+Unit&aacute;rio M&aacute;ximo]
+FROM Produtos;
+</p>
+
+<p><b><font size="+1">NOMEDOPRODUTO E
+PRE&Ccedil;O UNIT&Aacute;RIO SEPARADOS
+POR "tem um pre&ccedil;o unit&aacute;rio de"</font></b>
+</p>
+
+<p>SELECT NomeDoProduto, 'tem um pre&ccedil;o
+unit&aacute;rio de', Pre&ccedil;oUnit&aacute;rio
+FROM Produtos;
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">CL&Aacute;USULA
+WHERE</font></font></b></p>
+
+</center>
+
+<p>A Cl&aacute;usula Where &eacute; como um filtro.
+&eacute; uma condi&ccedil;&atilde;o.
+</p>
+
+<p><b><font size="+1">CLIENTES CUJO BAIRRO
+SEJA MONTESE OU PARQUEL&Acirc;NDIA</font></b>
+</p>
+
+<p>SELECT * FROM Clientes WHERE Bairro = 'Montese' OR Bairro =
+'Parquel&acirc;ndia';
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">PREDICADOS DA CL&Aacute;USULA
+WHERE: LIKE, IN e BETWEEN</font></font></b></center>
+
+<p><b><font size="+1"><font color="#ff0000">LIKE</font>
+- </font></b>Use
+este quando j&aacute; souber o que est&aacute; procurando
+</p>
+
+<p><b><font size="+1"><font color="#ff0000">IN</font>
+- </font></b>Este quando
+desejar procurar em uma lista
+</p>
+
+<p>SELECT * FROM Clientes WHERE Nome LIKE 'Rob*';
+</p>
+
+<p>SELET DISTINCT C&oacute;digo
+<br>
+
+FROM Clientes
+<br>
+
+WHERE C&oacute;digo IN ('JM2', 'LK5', 'DN7');
+</p>
+
+<p>Usando o NOT:
+</p>
+
+<p>...
+</p>
+
+<p>WHERE C&oacute;digo NOT IN ...
+</p>
+
+<p>SELECT * FROM Clientes WHERE Nome BETWEEN 'Ana' AND 'Luiz';
+</p>
+
+<p>Usando o NOT:
+</p>
+
+<p>... NOT BETWEEN ...
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">USO
+DO NULL, TRUE, FALSE e UNKNOWN</font></font></b></p>
+
+</center>
+
+<p>SELECT Nome FROM Clientes WHERE email IS NULL;
+</p>
+
+<p>Usa-se tamb&eacute;m de maneira semelhabte os outros
+predicados do WHERE.
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">CL&Aacute;USULA
+ORDER BY</font></font></b></p>
+
+</center>
+
+<p>Ordenar por
+</p>
+
+<p>SELECT * FROM Clientes ORDER BY Nome DESC;
+</p>
+
+<p>DESC ou ASC s&atilde;o opcionais. ASC &eacute; o
+default.
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">GROUP
+BY</font></font></b></p>
+
+</center>
+
+<p>SELECT * FROM Clientes GROUP BY Nome;
+</p>
+
+<p><b><font size="+1">MOSTRAR VENDAS MAIS
+RECENTES</font></b>
+</p>
+
+<p>SELECT C&oacute;digo, MAX (DataVenda) FROM Pedidos GROUP
+BY C&oacute;digo;
+</p>
+
+<p><b><font size="+1">PRODUTO MENOS VENDIDO</font></b>
+</p>
+
+<p>SELECT C&oacute;digo, MIN (Quantidade) FROM ItensPedidos
+GROUP BY C&oacute;digo;
+</p>
+
+<p><b><font size="+1">SOMANDO VENDAS POR
+PRODUTO</font></b>
+</p>
+
+<p>SELECT C&oacute;digo, SUM (Quantidade) AS [Soma] FROM
+ItensPedidos GROUP
+BY C&oacute;digo;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">CONSULTAS UNI&Atilde;O DE
+TABELAS (JOIN)</font></font></b></center>
+
+<p>Teoricamente &eacute; ilimitado o numero de Tabelas que
+podemos adicionar
+a uma Consulta SQL.
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">INNER JOIN</font></font></b></center>
+
+<p>Cria uma Consulta que une os registros das duas Tabelas, mas
+somente
+aqueles onde os Campos Chaves s&atilde;o iguais. Na jenela da
+Consulta
+d&ecirc; um duplo clique na linha de relacionamento entre as
+Tabelas. Este
+&eacute; o tipo padr&atilde;o do Access, o tipo 1. O tipo 2
+&eacute; o
+LEFT JOIN e o 3 &eacute; o RIGHT JOIN. Este tipo &eacute;
+representado
+com uma linha sem setas.
+</p>
+
+<p>SELECT * FROM Clientes INNER JOIN Pedidos ON
+Clientes.C&oacute;digo=Pedidos.C&oacute;digoCli;
+</p>
+
+<p>Podemos usar o AND e OR para auxiliar o ON.
+</p>
+
+<p>Gera uma Consulta com n&uacute;mero de Campos igual
+&agrave; soma dos
+Campos das duas Tabelas e com n&uacute;mero de registros igual a
+aos que
+atendam ao Crit&eacute;rio em ON..
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">LEFT JOIN</font></font></b></center>
+
+<p>Esta vai incluir todos os registros da Tabelas da Esquerda e
+somente
+os da Direita quando os Campos Chaves forem iguais. &Eacute;
+representado
+na tela da Consulta entre as Tabelas, como uma seta para a Direita.
+</p>
+
+<p>SELECT * FROM Clientes LEFT JOIN Pedidos ON
+Clientes.C&oacute;digo =
+Pedidos.C&oacute;digoCli;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">RIGHT JOIN</font></font></b></center>
+
+<p>Este inclui todos os registros da Tabela da Direita e somente
+os da
+esquerda quando as Chaves forem iguais. &Eacute; representado na
+tela da
+Consulta entre as Tabelas, como uma seta para a Esquerda. A
+associa&ccedil;&atilde;o
+aqui &eacute; ao contr&aacute;rio: LeftJoin tem seta para a
+direita e RightJoin
+para a esquerda.
+</p>
+
+<p>SELECT * FROM Clientes RIGHT JOIN Vendas ON Clientes.CodCli =
+Vendas.CodCli;
+</p>
+
+<p>Obs.: Em todas as 3 podemos utilizar os operadores: &lt;,
+&gt;, &lt;= e
+=&gt; entre outros.
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">FUN&Ccedil;&Atilde;O COUNT</font></font></b></center>
+
+<p>SELECT COUNT (Nome) FROM Clientes;
+<br>
+
+SELECT DISTINCT COUNT (Nome) FROM Clientes;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">FUN&Ccedil;&Atilde;O SUM</font></font></b></center>
+
+<p>SELECT SUM ([Quantidade]) AS [Total de Vendas] FROM Vendas;
+</p>
+
+<p>SELECT DISTINCT SUM (Remunera&ccedil;&atilde;o) AS
+[Total do Sal&aacute;rio]
+FROM Funcion&aacute;rios;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">FUN&Ccedil;&Atilde;O AVG
+(M&eacute;dia)</font></font></b></center>
+
+<p>SELECT AVG (PUnit&aacute;rio) FROM Produtos;
+</p>
+
+<p>SELECT DISTINCT AVG (PUnit&aacute;rio) FROM Produtos;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">FUN&Ccedil;&Atilde;O MAX</font></font></b></center>
+
+<p>SELECT MAX (Remunera&ccedil;&atilde;o) AS [Maior
+Sal&aacute;rio] FROM
+Funcion&aacute;rios;
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">FUN&Ccedil;&Atilde;O MIN</font></font></b></center>
+
+<p>SELECT MIN (Remunera&ccedil;&atilde;o) AS [Menor
+Sal&aacute;rio] FROM
+Funcion&aacute;rios;
+</p>
+
+<center>
+<p><b><font color="#ff0000"><font size="+1">SUB-CONSULTAS</font></font></b></p>
+
+</center>
+
+<p>SELECT Nome FROM Pedidos, Clientes WHERE
+Pedidos.C&oacute;digoCli =
+Clientes.C&oacute;digo
+<br>
+
+&nbsp;&nbsp; AND Pedidos.C&oacute;digo = (SELECT MAX
+(Pedidos.C&oacute;digo)
+FROM Pedidos
+<br>
+
+WHERE DataVenda &gt;= #11-28-1989#);
+</p>
+
+<p>&nbsp;<b><font size="+1">FUNCION&Aacute;RIOS
+COM SAL&Aacute;RIO ACIMA
+DE R$ 2.000,00</font></b>
+</p>
+
+<p>SELECT Nome, Remunera&ccedil;&atilde;o FROM
+Funcion&aacute;rios
+<br>
+
+&nbsp; WHERE Funcion&aacute;rio.Tipo = 'Supervisor' AND
+<br>
+
+&nbsp; EXISTS (SELECT * FROM Funcion&aacute;rios WHERE Tipo =
+'Segundo
+Grau'
+<br>
+
+&nbsp; AND Remunera&ccedil;&atilde;o &gt;= 2000);
+</p>
+
+<p>Se algum resultado =&gt; EXISTS = True
+<br>
+
+Se nenhum resultado =&gt; EXISTS = False
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">ATUALIZA&Ccedil;&Atilde;O</font></font></b></center>
+
+<p>UPDATE Clientes SET Estado = 'Ce' WHERE Cidade = 'Fortaleza';
+</p>
+
+<center><b><font color="#ff0000"><font size="+1">EXCLUINDO DADOS DE TABELAS</font></font></b></center>
+
+<p>Excluir todos os registros da Tabela Clientes:
+</p>
+
+<p>DELETE FROM Clientes;
+</p>
+
+<p>Excluir o Registro onde o Fone = 2883342
+</p>
+
+<p>DELETE FROM Clientes WHERE Fone = '2883342';
+</p>
+
+<p><b><font size="+1">EXCLUIR DADOS USANDO
+SUB-CONSULTA</font></b>
+</p>
+
+<p>DELETE FROM Clientes WHERE Nome IN (SELECT Nome FROM
+Clientes2)
+</p>
+
+<p>Excluir&aacute; todos os registros de Clientes cujos Nomes
+sejam semelhantes
+aos de Clientes2.
+</p>
+
+<p>---------------------------------------------------
+<br>
+
+&nbsp;&nbsp;&nbsp; Cantinho dos Amantes do Access
+<br>
+
+</p>
+
+</body>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/sqlpratico.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:57:12 GMT -->
+</html>

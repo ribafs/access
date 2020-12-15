@@ -1,0 +1,41 @@
+Na verdade, a gente deve 
+criar um atalho do ACCESS e não do Banco de Dados a ser 
+trabalhado, e colocá-lo na área de trabalho para 
+facilitar. Funciona que é uma beleza.
+
+Assim, seguindo o caminho C:\Arquivos de 
+programas\Microsoft Office\Office\ --> e em MSACCESS com 
+o botão direito do mouse cria-se o atalho remetendo-o 
+para a área de trabalho.
+
+Na área de trabalho e com o botão direito do mouse no 
+atalho, em propriedades  --> e em objetos, digita-se, 
+
+EXEMPLO:
+
+"C:\Arquivos de programas\Microsoft 
+Office\Office\MSACCESS.EXE" "C:\EU"/wrkgrp "C:\AL.mdw"
+
+Neste exemplo, o arquivo de informações de segurança 
+está batizado como AL.mdw e o arquivo de banco de dados 
+a ser trabalhado é o EU. É importante observar que deve 
+ter um ESPAÇO EM BRANCO depois do apóstrofo da palavra 
+EXE e antes do apóstrofo onde está o C:,  e ainda depois 
+da palavra wrkgrp, porque senão não funciona. O ACCESS é 
+chato nisso.
+
+Paulo (pbrazo@bol.com.br)
+
+
+
+Exemplo Detalhado:
+
+Numa Rede:
+
+"C:\Arquivos de Programas\Microsoft Office\Office\MSACCESS.EXE" "\\486\D\CT\SIA\Sia.mdb" /wrkgrp "C:\windows\system\system.mdw"
+
+Local:
+
+"C:\Arquivos de Programas\Microsoft Office\Office\MSACCESS.EXE" "c:\SIA\Sia.mdb" /wrkgrp "C:\windows\system\system.mdw"
+
+Cuidado: digitar numa única linha.

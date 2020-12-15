@@ -1,0 +1,210 @@
+COMO REPARAR UM BANCO DE DADOS
+
+Um verdadeiro trabalho de detetive na recuperação de um Banco de Dados
+
+Article ID: Q109953 - Knowlwdge Base para Access
+
+ - Microsoft Access versions 1.0, 1.1, 2.0, 7.0, 97
+
+Fatores ambientais como quedas e flutuações da energia elétrica causam
+fechamento inadequado do Access e falha no HD, rede e dano ao banco de
+dados.
+
+Os utilitários Repair e Compact do Access são úteis para recuperar e 
+otimizar os bancos de dados. Este artigo descreve os passos para se
+utilizar estes utilitários e alternativas adicionais para reparar 
+bancos de dados danificados. 
+
+MAIS INFORMAÇÕES
+================
+
+Independentemente de que estes passos sejam suficientes para recuperar
+seu banco de dados, você deve sempre fazer backup deles.
+
+Reparar Banco de Dados
+----------------------
+
+O Repais recupera apenas Tabelas, Consultas e Índices. Não tenta consertar
+Formulários, Relatórios, Macros ou Módulos, mas os copia para o novo
+banco de dados reparado.
+
+Compactar Banco de Dados
+------------------------
+
+Elimina os espaços vazios no banco de dados. Ele cria um novo banco de
+dados e copia cada objeto para o novo. Caso você escolha compactar para
+o mesmo nome, o Compact cria um arquivo temporário, exporta tudo para ele,
+elimina o atual banco de dados e renomeia o temporário.
+
+Recuperando Banco de Dados Danificado
+-------------------------------------
+
+Passos para a recuperação
+
+Banco de Dados:
+
+1. Se estiver usando o Access 2, obtenha o Access 2.0 Service Pack
+   Caso esteja recebendo umas das mensagens:
+
+   - Couldn't open SYSTEM.MDA
+
+     -ou-
+
+   - <Database> is corrupted or is not a database file. Attempt to repair?
+
+   Adicionalmente para sanar o problema mencionado, o Access 2.0 Service 
+   Pack também inclui um utilitário avançado de Recuperação.
+
+   Para mais informações sobre o Access 2.0 Service Pack veja os seguintes 
+   artigos no Microsoft Knowledge Base:
+
+      ARTICLE-ID: Q123589
+      TITLE:      PRA: Error Message "Couldn't Open SYSTEM.MDA"
+
+      ARTICLE-ID: Q123823
+      TITLE:      INF: MS Access Version 2.0 Service Pack Questions and
+                  Answers
+
+      ARTICLE-ID: Q123588
+      TITLE:      INF: Microsoft Access Repair Utility Enhanced
+
+2. Faça um backup do banco de dados danificado (.mdb).
+
+3. Exclua o arquivo .ldb se ele existir. O correspondente MDB dele ser 
+   fechado ao excluir este arquivo.
+
+   O arquivo .LDB é usado para determinar que registros estão bloqueados
+   em um banco de dados compartilhado e por quem. Caso um Banco de Dados
+   for aberto para uso compartilhado, o .LDB é criado com o mesmo nome
+   do correspondente .MDB. No Access 95 ou 97 o LDB é automaticamente 
+   deletado após o último registro usuário ter saído, com as exceções:
+   - Quando o último usuário não tem privilégios de apagar no diretório
+   onde está o MDB;
+   - Quando o BD está corrompido ou
+   - Quando o BD foi fechado de maneira anormal
+
+   Para maiores informações sobre os LDB veja os artigos Microsoft 
+   Knowledge Base:
+
+      ARTICLE-ID: Q136128
+      TITLE:      INF: Introduction to .ldb Files (7.0/97)
+
+      ARTICLE-ID: Q109957
+
+      TITLE:      INF: Introduction to .LDB Files (1.x, 2.0)
+
+4. Execute o utilitário de Compactação como segue:
+
+    a. Caso o Banco de Dados esteja aberto, feche-o.
+
+    b. Vá em Ferramentas, Utilitários de bancos de dados e Compactar 
+    banco de dados.
+
+    No Access 2.0 ou anterior, no menu File, clique em Compact Database.
+
+   Aqui verifique se estes passos foram sufucientes para reparar o BD.
+   Caso ainda não tenham sido, continue com os passos seguintes.   
+
+5. Se o dano estiver em uma Tabela, Consulta ou Índice, rode o Raparador
+   como segue:
+
+    a. Se o BD estiver aberto, feche-o.
+
+    b. Vá em Ferramentas, Utilitários de bancos de dados e Reparar 
+    banco de dados.
+
+    No Access 2.0 ou anterior, no menu File, clique em Repair Database.
+
+    c. Selecione o arquivo danificado na Caixa de Diálogo e clique em Reparar.
+
+    No Access 2 ou anterior, entre o nome do arquivo danificado na caixa
+    File Name e clique em OK.
+
+    Caso tenha sucesso, verá uma das mensagens:
+
+    Microsoft Access 97:
+
+         O banco de dados '<path><BancoDadosNome>' foi reparado com sucesso.
+
+    Microsoft Access 95:
+
+      Microsoft Access repaired database '<path><database name>'successfully.
+
+    Microsoft Access 2.0 ou anteriores:
+
+         Repair of database '<path><database name>' completed successfully.
+
+    Caso não tenha sucesso, você receberá uma mensagem falando da Tabela,
+    Consulta ou índice que não pode ser recuperado pelo utilitário.
+
+6. Se o dano estiver em uma Tabela, e os prévios passos não conseguiram 
+   recuperá-la, siga os passos seguintes:
+
+    a. Abra o Access e exporte a Tabela para um arquivo ASCII (Texto
+       delimitado)
+
+    b. Delete todos os relacionamentos com esta Tabela e delete esta Tabela
+
+    c. Compacte o BD.
+
+    d. Recrie a Tabela.
+
+    e. Usando um processador de textos, examine o arquivo ASCII a procura
+       de dados estranhos e remova estes dados. Salve como Texto puro (ASCII)
+
+    f. Inporte o arquivo ASCII para a nova Tabela criada.
+
+    g. Recrie os relacionamentos deletados.
+
+7. Caso os passos acima tenham sido insuficientes, tente criar um novo
+   Banco de Dados e importar os objetos um-a-um do BD danificado. Então
+   recrie os Relacionamentos. Esta técnica resolve os problemas com Tabelas
+   de sistema danificadas.
+
+8. Se o problema estiver em um Formulário ou Relatório, ele pode estar no
+   próprio Formulário ou Relatório ou em algum controle destes.
+   Você pode deletar o Formulário ou Relatório e importar de uma cópia de
+   backup anterior ou usar uma das seguintes opções:
+
+    - Caso o problema esteja no próprio Formulário ou relatório e não num
+      controle, crie um novo Formulário/Relatório e copie os controles do
+      Formulário/Relatório original.
+
+    - Se o problema estiver em um controle, crie um novo Relatório/Formulário
+      e então recrie o(s) controle(s) no novo Formulário/Relatório. É melhor
+      recriar todos os controles, pois não existe uma maneira de saber qual
+      controle está danificado.
+
+9. Se o problema estiver em uma Macro ou Módulo, ele pode estar na própria
+   Macro ou Módulo ou pode estar no(s) controles envolvidos. Você pode 
+   deletar a Macro ou Módulo e recuperar de um backup ou seguir uma das 
+   opções:
+
+    - Se o problema estiver na própria Macro ou Módulo, crie uma nova Macro
+      ou Módulo e copie todo o conteúdo da original Macro ou Módulo.
+
+    - O problema pode estar relacionado a caracteres não ASCII existentes no
+      Módulo (procure por caracteres estranhos, remova, mande compilar e salve)
+
+    - Se o problema está no conteúdo de uma Macro ou Módulo, então crie uma
+      nova Macro/Módulo e recrie o conteúdo.
+
+Caso estes passos não tenham sido suficientes para reparar o banco de dados,
+então resta restaurar o último backup ou recriar o banco de dados.
+
+Como uma última alternativa, alguns especialistas oferecem serviço de 
+recuperação a bancos de dados Access e eles podem ser encontrados postando
+uma mensagem no Microsoft Access "Third Party and User Groups" Internet 
+newsgroup, no seguinte endereço:
+
+    microsoft.public.access.3rdpartyusrgrp
+
+Mais informações sobre os news groups Access na internet no Microsoft 
+Knowledge Base:
+
+      ARTICLE-ID: Q150057
+      TITLE:      INF: Microsoft Access Newsgroups Available on the
+                  Internet
+
+
+Tradução livre de Ribamar FS (ribafs@yahoo.com)

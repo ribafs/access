@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/sql.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:56:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+   
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+   
+  <meta name="Generator" content="Microsoft Word 97">
+
+   
+  <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+
+   
+  <meta name="Author" content="Ribamar FS">
+
+   
+  <title>Cantinho dos Amantes do Access - SQL</title>
+</head>
+
+
+<body>
+
+
+<table border="1" cols="8" width="100%">
+  <tbody>
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="introducao.html">Introdu&ccedil;&atilde;o</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="tabelas.html">Tabelas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="relacionamentos.html">Relacionamentos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="consultas.html">Consultas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="formularios.html">Formul&aacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="relatorios.html">Relat&oacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="macros.html">Macros</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="modulos.html">M&oacute;dulos</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="activex.html">ActiveX</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="automacao.html">Automa&ccedil;&atilde;oOLE</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="graficos.html">Gr&aacute;ficos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dao.html">DAO</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="file:///E:/1Ribamar/1Sites/Access/sql.htm">SQL</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="seguranca.html">Seguran&ccedil;a</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="redes.html">Redes/ODBC</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dicas.html">Dicas</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="cursoonline.html">Curso
+Online</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="wizards.html">Wizards</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="ferramentas.html">Ferramentas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="help.html">Help</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="downloads.html">Downloads</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;</center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center>
+<p><font size="+2">SQL</font></p>
+</center>
+
+
+<hr width="100%">
+<b>&nbsp;&nbsp;&nbsp; SQL -&nbsp;</b> Structure Query Language - Linguagem
+estruturada de consultas.
+<p>&nbsp;&nbsp;&nbsp; Esta &eacute; uma ferramenta muito eficiente para
+quem j&aacute; est&aacute; avan&ccedil;ando em Access, pois sua sintaxe
+&eacute; bastante poderosa, resumida (comparando com o DAO) e eficiente,
+al&eacute;m de apresentar ganho de desempenho.
+<br>
+
+</p>
+<hr width="100%">
+<center><a href="SQLPratico.zip">Banco de Dados contendo as Consultas SQL
+do Tutorial abaixo</a></center>
+
+
+<p>Veja o tutorial abaixo realmente aplicado em Consultas Access. Com estas
+Consultas em m&atilde;os podemos Criar Formul&aacute;rios, Relat&oacute;rios,
+Pesquisas em Campos do formul&aacute;rio (Origem da linha de ComboBoxes),
+etc.
+</p>
+<center>
+<p><b><font size="+1"><a href="sqlpratico.html">Pequeno e Pr&aacute;tico Tutorial
+de SQL em Exemplos</a></font></b></p>
+</center>
+
+
+<p>O Ajuda do Access &eacute; realmente espetacular, mas quando trata do
+DAO (Recordsets, TableDefs e ) como tamb&eacute;m da SQL, a&iacute; parece
+que n&atilde;o existe a inten&ccedil;ao de descomplicar. Ent&atilde;o c/om
+o intuito de desmistificar esta &uacute;til e poderosa linguagem eu adaptei
+uns exemplos que baixam o n&iacute;vel para melhor compreens&atilde;o.
+<br>
+
+</p>
+<hr width="100%">
+<br>
+&nbsp;&nbsp;&nbsp; Podemos utilizar SQL tamb&eacute;m em Recordsets,
+com rotinas contidas em strings.
+<p>&nbsp;&nbsp;&nbsp; Dim r As Recordset
+<br>
+&nbsp;&nbsp;&nbsp; r = CurrentDb.Execute("SELECT * FROM tblClientes;")
+</p>
+<p>&nbsp;&nbsp;&nbsp; Com estas duas linhas apenas, criamos uma consulta
+que seleciona todos os registros "*" da Tabela tblClientes.
+</p>
+<p>
+</p>
+<hr width="100%">
+</body>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/sql.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:56:10 GMT -->
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/dao.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:56:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+   
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+   
+  <meta name="Generator" content="Microsoft Word 97">
+
+   
+  <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U) [Netscape]">
+
+   
+  <meta name="Author" content="Ribamar FS">
+
+   
+  <title>Cantinho dos Amantes do Access - DAO</title>
+</head>
+
+
+<body>
+
+
+<table border="1" cols="8" width="100%">
+  <tbody>
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="introducao.html">Introdu&ccedil;&atilde;o</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="tabelas.html">Tabelas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="relacionamentos.html">Relacionamentos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="consultas.html">Consultas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="formularios.html">Formul&aacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="relatorios.html">Relat&oacute;rios</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="macros.html">Macros</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="modulos.html">M&oacute;dulos</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center><font size="-1"><a href="activex.html">ActiveX</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="automacao.html">Automa&ccedil;&atilde;oOLE</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="graficos.html">Gr&aacute;ficos</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="file:///E:/1Ribamar/1Sites/Access/dao.htm">DAO</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="sql.html">SQL</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="seguranca.html">Seguran&ccedil;a</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="redes.html">Redes/ODBC</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="dicas.html">Dicas</a></font></center>
+
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="cursoonline.html">Curso
+Online</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="wizards.html">Wizards</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="ferramentas.html">Ferramentas</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center><font size="-1"><a href="help.html">Help</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;<font size="-1"><a href="downloads.html">Downloads</a></font></center>
+
+      </td>
+
+
+      <td>
+      <center>&nbsp;</center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<center>
+<p><b><font size="+2">DAO</font></b></p>
+</center>
+
+
+<hr width="100%">
+DAO - Data Access Object &eacute; a parte do Jet encarregada de tratar
+bancos de dados via c&oacute;digo juntamente com o SQL no Access.
+<center><b><font size="+1"><a href="DAOPratico.txt">Mini curso de DAO</a></font></b></center>
+
+
+<p>&nbsp;&nbsp;&nbsp; Atrav&eacute;s do DAO podemos criar bancos de dados
+e todos os seus objetos, como tamb&eacute;m relacionamentos e &iacute;ndices,
+al&eacute;m de implementar a seguran&ccedil;a: usu&aacute;rios e senhas.
+Podemos tamb&eacute;m trabalhar com registros dos bancos de dados: adicionando,
+editando ou alterando.
+</p>
+<p>&nbsp;&nbsp;&nbsp; Temos uma Tabela Cliente, que comtem C&oacute;digo,
+Nome, Endere&ccedil;o e Telefone. Acontece que esta tabela dever&aacute;
+ter mais um campo, m&ecirc;s de vencimento e todos ser&atilde;o do m&ecirc;s
+de janeiro. Mais ainda, esta Tabela j&aacute; est&aacute; cadastrada com
+170.000 registros. Como faremos?
+<br>
+&nbsp;&nbsp;&nbsp; Criamos o Campo m&ecirc;s e vamos cadastrar via
+c&oacute;digo (DAO):
+</p>
+<p>&nbsp;&nbsp;&nbsp; Criamos um bot&atilde;o em um formul&aacute;rio qualquer
+e uma Caixa de Texto (Mes) no evento Ao clicar:
+</p>
+<p>Private Sub Comando1_Click()
+<br>
+&nbsp;&nbsp;&nbsp; Dim db As Database
+<br>
+&nbsp;&nbsp;&nbsp; Dim rs As Recordset
+</p>
+<p>If IsNull(Mes) Then
+<br>
+&nbsp;&nbsp;&nbsp; MsgBox "M&ecirc;s est&aacute; vazio, digite um m&ecirc;s!"
+<br>
+Else
+</p>
+<p>&nbsp;&nbsp;&nbsp; Set db = CurrentDb
+<br>
+&nbsp;&nbsp;&nbsp; Set rs = db.OpenRecordset("tbtClientes", dbOpenDynaset)
+</p>
+<p>&nbsp;&nbsp;&nbsp; rs.MoveFirst
+<br>
+&nbsp;&nbsp;&nbsp; With rs
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do While Not .EOF
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.Edit
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!M&ecirc;sVencimento = Mes
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.Update
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.MoveNext
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Loop
+<br>
+&nbsp;&nbsp;&nbsp; End With
+<br>
+&nbsp;&nbsp;&nbsp; rs.Close
+<br>
+&nbsp;&nbsp;&nbsp; Set db = Nothing
+<br>
+End If
+<br>
+End Sub
+</p>
+<p>Veja o Help do Access que tem muita coisa sobre o assunto.
+<br>
+
+</p>
+<hr width="100%">
+</body>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/dao.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:56:09 GMT -->
+</html>

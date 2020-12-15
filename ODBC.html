@@ -1,0 +1,1109 @@
+<HTML>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/ODBC.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Generator" CONTENT="Microsoft Word 97">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [pt] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Ribamar FS">
+   <TITLE>Cantinho dos Amantes do Access - ODBC</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFCC" BGCOLOR="#003300" LINK="#66FFFF" VLINK="#FF99FF" ALINK="#FF0000">
+
+<CENTER><FONT SIZE=-1><A HREF="introducao.html">Introdu&ccedil;&atilde;o</A>&nbsp;
+<A HREF="tabelas.html">Tabelas</A>&nbsp; <A HREF="relacionamentos.html">Relacionamentos</A>&nbsp;
+<A HREF="consultas.html">Consultas</A>&nbsp; <A HREF="formularios.html">Formul&aacute;rios</A>&nbsp;
+<A HREF="relatorios.html">Relat&oacute;rios</A>&nbsp; <A HREF="macros.html">Macros</A>&nbsp;
+<A HREF="modulos.html">M&oacute;dulos</A></FONT></CENTER>
+
+<CENTER><FONT SIZE=-1><A HREF="activex.html">ActiveX</A>&nbsp; <A HREF="automacao.html">Automa&ccedil;&atilde;o
+OLE</A>&nbsp; <A HREF="graficos.html">Gr&aacute;ficos</A>&nbsp; <A HREF="dao.html">DAO</A>&nbsp;
+<A HREF="sql.html">SQL</A>&nbsp; <A HREF="seguranca.html">Seguran&ccedil;a</A>&nbsp;
+<A HREF="redes.html">Redes/ODBC</A>&nbsp; <A HREF="novidades.html">Novidades
+do 97</A></FONT></CENTER>
+
+<CENTER><FONT SIZE=-1><A HREF="dicas.html">Dicas</A>&nbsp; <A HREF="cursoonline.html">Curso
+de Access97 Online</A>&nbsp; <A HREF="links.html">Links</A>&nbsp; <A HREF="downloads.html">Downloads</A></FONT></CENTER>
+
+<HR WIDTH="100%">
+<CENTER><B><FONT SIZE=+2>ODBC</FONT></B></CENTER>
+&nbsp;
+<CENTER><B><FONT COLOR="#FF0000"><FONT SIZE=+1>&nbsp;CORRIGIDO</FONT></FONT></B></CENTER>
+
+
+<P><B><FONT SIZE=-1><A HREF="#Banco de Dados ODBC">Banco de Dados ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#ODBC (Open Database Connectivity)">ODBC (Open
+Database Connectivity)</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#ODBCDirect">ODBCDirect</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#1) Novos recursos com o ODBCDirect">1) Novos
+recursos com o ODBCDirect</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#2) Utilizando DAO para acessar bancos de dados">2)
+Utilizando DAO para acessar bancos de dados ODBC sem carregar o mecanismo
+de banco de dados Microsoft Jet</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#3) USAR ODBCDIRECT COM O MICROSOFT ACCESS">3)
+USAR ODBCDIRECT COM O MICROSOFT ACCESS</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#4) Configurar fontes de dados ODBC">4) Configurar
+fontes de dados ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#5) Configuring the Microsoft Jet Database Engine">5)
+Configuring the Microsoft Jet Database Engine for ODBC Access</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#6) Construtor de seqüências de conexão ODBC">6)
+Construtor de seq&uuml;&ecirc;ncias de conex&atilde;o ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#7) Criar a seqüência de conexão ODBC para uma">7)
+Criar a seq&uuml;&ecirc;ncia de conex&atilde;o ODBC para uma consulta passagem
+SQL</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#8) Fonte de Dados ODBC">8) Fonte de Dados
+ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#9) Personalizar as configurações do driver ODBC">9)
+Personalizar as configura&ccedil;&otilde;es do driver ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#10) Método SetOption">10) M&eacute;todo SetOption</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#11) Utilizar o Editor de Registro">11) Utilizar
+o Editor de Registro</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#12) Sobre instalação de drivers ODBC">12)
+Sobre instala&ccedil;&atilde;o de drivers ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#13) Configurar fontes de dados ODBC">13)
+Configurar fontes de dados ODBC</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#14) Instalar drivers para bancos de dados internos">14)
+Instalar drivers para bancos de dados internos</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#15) Instalar o Driver para o Microsoft Access">15)
+Instalar o Driver para o Microsoft Access</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#16) Usar ODBCDirect com o Microsoft Access">16)
+Usar ODBCDirect com o Microsoft Access</A></FONT></B>
+
+<P><B><FONT SIZE=-1><A HREF="#17) Propriedade ODBCConnectStr">17) Propriedade
+ODBCConnectStr (Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC)</A></FONT></B>
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P><B><FONT SIZE=+1>ODBC</FONT></B>
+<BR>&nbsp;
+
+<P><A NAME="Banco de Dados ODBC"></A><B><FONT SIZE=+1>Banco de Dados ODBC</FONT></B>
+
+<P>Um banco de dados para o qual &eacute; fornecido um driver ODBC (Open
+Database Connectivity) que voc&ecirc; pode utilizar para importar, vincular,
+ou exportar dados.
+
+<P><A NAME="ODBC (Open Database Connectivity)"></A><B><FONT SIZE=+1>ODBC
+(Open Database Connectivity)</FONT></B>
+
+<P>Um protocolo padr&atilde;o para acesso a informa&ccedil;&otilde;es em
+servidores de banco de dados SQL, como o Microsoft SQL Server. Voc&ecirc;
+pode instalar drivers ODBC que permitam ao Microsoft Access conectar-se
+a esses servidores de banco de dados SQL e acessar os dados nos bancos
+de dados SQL.
+<BR>&nbsp;
+
+<P><A NAME="ODBCDirect"></A><B><FONT SIZE=+1>ODBCDirect</FONT></B>
+
+<P>Uma tecnologia que permite ao usu&aacute;rio acessar fontes de dados
+ODBC diretamente, utilizando os recursos DAO que ignoram o mecanismo de
+banco de dados Microsoft Jet.
+
+<P>&nbsp;
+
+<P><A NAME="1) Novos recursos com o ODBCDirect"></A><B><FONT SIZE=+1>1)
+Novos recursos com o ODBCDirect</FONT></B>
+
+<P><B>Conex&otilde;es ao servidor</B>
+
+<P><B>Dispon&iacute;vel apenas no modelo de objetos ODBCDirect, o novo
+objeto Connection cont&eacute;m informa&ccedil;&otilde;es sobre uma conex&atilde;o
+a uma fonte de dados ODBC, como o nome do servidor, o nome da fonte de
+dados e assim por diante. Ele &eacute; semelhante a um objeto Database
+e parecer&aacute; bastante familiar se voc&ecirc; j&aacute; tiver aberto
+um objeto Database em uma fonte de dados ODBC. Na verdade, um objeto Connection
+e um objeto Database representam refer&ecirc;ncias distintas ao mesmo objeto.
+Novas propriedades em cada um desses dois tipos de objetos permitem que
+voc&ecirc; obtenha uma refer&ecirc;ncia ao outro objeto correspondente,
+o que simplifica a tarefa de convers&atilde;o dos aplicativos cliente ODBC
+existentes que utilizam o Microsoft Jet para passarem a utilizar o ODBCDirect.</B>
+
+<P><B>Atualiza&ccedil;&otilde;es em lote</B>
+
+<P><B>Um novo cursor de atualiza&ccedil;&atilde;o em lote se encontra dispon&iacute;vel
+para aplicativos cliente que precisem ser executados com um cursor sem
+exercer bloqueios no servidor ou executar solicita&ccedil;&otilde;es de
+atualiza&ccedil;&atilde;o um registro por vez. Em vez disso, o cliente
+armazena as informa&ccedil;&otilde;es sobre a atualiza&ccedil;&atilde;o
+em v&aacute;rios registros em um buffer local (ou "em lote") e, em seguida,
+executa uma atualiza&ccedil;&atilde;o em lote. Isso tamb&eacute;m permite
+uma simples "canaliza&ccedil;&atilde;o dos dados", na qual o cliente interrompe
+a conex&atilde;o ao servidor e a restabelece em um outro servidor.</B>
+
+<P><B>Devido ao atraso entre a abertura de um Recordset e o envio de um
+lote de atualiza&ccedil;&otilde;es desse Recordset de volta para o servidor,
+outros usu&aacute;rios t&ecirc;m a oportunidade de modificar os dados originais
+antes de as suas altera&ccedil;&otilde;es serem enviadas para o servidor.
+Por isso, as altera&ccedil;&otilde;es que voc&ecirc; fizer ir&atilde;o
+"entrar em conflito" com as altera&ccedil;&otilde;es feitas por um outro
+usu&aacute;rio. V&aacute;rios recursos novos est&atilde;o dispon&iacute;veis
+para ajud&aacute;-lo a descobrir onde esses conflitos ocorreram, ap&oacute;s
+uma atualiza&ccedil;&atilde;o em lote, e ir&atilde;o sugerir algumas op&ccedil;&otilde;es
+para solucion&aacute;-los.</B>
+
+<P><B>Execu&ccedil;&atilde;o de m&eacute;todo ass&iacute;ncrono</B>
+
+<P><B>Os m&eacute;todos Execute, MoveLast, OpenConnection e OpenRecordset
+cont&ecirc;m a op&ccedil;&atilde;o dbRunAsync. Essa op&ccedil;&atilde;o
+permite que o seu aplicativo cliente realize outras tarefas (por exemplo,
+carregar formul&aacute;rios) enquanto o m&eacute;todo est&aacute; sendo
+executado. Voc&ecirc; tamb&eacute;m pode pesquisar para saber se a tarefa
+foi conclu&iacute;da e finalizar uma tarefa ass&iacute;ncrona.</B>
+
+<P><B>Suporte do cliente a cursores ODBC</B>
+
+<P><B>Quatro tipos diferentes de Recordset oferecem suporte aos seguintes
+tipos de cursores ODBC:</B>
+
+<P><B>Cursor ODBC Tipo de Recordset</B>
+
+<P><B>Dynamic dbOpenDynamic (Novo no DAO 3.5)</B>
+
+<P><B>Dynaset dbOpenDynaset</B>
+
+<P><B>Forward-Only dbOpenForwardOnly (Novo no DAO 3.5)</B>
+
+<P><B>Static dbOpenSnapshot</B>
+
+<P><B>&nbsp;</B>
+
+<P><A NAME="2) Utilizando DAO para acessar bancos de dados"></A><B><FONT SIZE=+1>2)
+Utilizando DAO para acessar bancos de dados ODBC sem carregar o mecanismo
+de banco de dados Microsoft Jet</FONT></B>
+
+<P>Usar ODBCDirect com o Microsoft Access
+
+<P>O Que &eacute; ODBCDirect?
+
+<P>ODBCDirect &eacute; uma tecnologia que permite que voc&ecirc; trabalhe
+com servidores de banco de dados ODBC sem carregar o mecanismo de banco
+de dados Microsoft Jet. O ODBCDirect depende do modelo de objeto do Microsoft
+DAO 3.5 e, portanto, voc&ecirc; pode facilmente modificar o seu c&oacute;digo
+de DAO existente para aproveitar as vantagens do ODBCDirect. O Microsoft
+DAO 3.5 inclui novos objetos, m&eacute;todos e propriedades para suportar
+ao ODBCDirect.
+
+<P>Vantagens de Acessar Dados ODBC com o ODBCDirect
+
+<P>O ODBCDirect oferece as seguintes vantagens para as opera&ccedil;&otilde;es
+ODBC:
+
+<P>&middot; O ODBCDirect pode tornar o seu c&oacute;digo mais r&aacute;pido
+e eficiente por oferecer um acesso direto &agrave;s fontes de dados ODBC.
+Por n&atilde;o requerer que o mecanismo de banco de dados Microsoft Jet
+seja carregado, o ODBCDirect consome menos recursos no lado do cliente.
+O servidor ODBC &eacute; respons&aacute;vel por todo o processamento para
+consultas.
+
+<P>&middot; O ODBCDirect oferece um melhor acesso a recursos espec&iacute;ficos
+do servidor que n&atilde;o est&atilde;o dispon&iacute;veis pela utiliza&ccedil;&atilde;o
+do ODBC atrav&eacute;s do Microsoft Jet. Por exemplo, para servidores que
+suportam especifica&ccedil;&atilde;o de cursor, o ODBCDirect permite que
+voc&ecirc; especifique onde os cursores est&atilde;o localizados, se localmente
+ou no servidor. Al&eacute;m disso, para interagir com procedimentos armazenados
+no n&iacute;vel do servidor, voc&ecirc; pode especificar valores de entrada
+e ativar valores de retorno, que voc&ecirc; n&atilde;o pode fazer quando
+estiver usando o Microsoft Jet.
+
+<P>&middot; O ODBCDirect tamb&eacute;m suporta consultas ass&iacute;ncronas.
+Quando voc&ecirc; executa uma consulta, voc&ecirc; n&atilde;o precisa aguardar
+o t&eacute;rmino da execu&ccedil;&atilde;o da consulta antes de come&ccedil;ar
+uma outra opera&ccedil;&atilde;o. Voc&ecirc; pode acompanhar a execu&ccedil;&atilde;o
+da consulta ativando a propriedade StillExecuting.
+
+<P>&middot; O ODBCDirect suporta atualiza&ccedil;&atilde;o em lote, permitindo
+que voc&ecirc; estabele&ccedil;a localmente o cache de altera&ccedil;&otilde;es
+no objeto Recordset e ent&atilde;o submeta essas altera&ccedil;&otilde;es
+ao servidor em um &uacute;nico lote.
+
+<P>&middot; Com o ODBCDirect, voc&ecirc; pode criar conjuntos de resultados
+simples e sem cursor, ou cursores mais complexos. Voc&ecirc; tamb&eacute;m
+pode executar consultas que retornem qualquer n&uacute;mero de conjuntos
+de resultados. Voc&ecirc; pode limitar o n&uacute;mero de linhas retornadas
+e monitorar todas as mensagens e erros gerados pela fonte de dados remotos,
+sem afetar o desempenho da execu&ccedil;&atilde;o da consulta.
+
+<P>Criando um Espa&ccedil;o de Trabalho do ODBCDirect
+
+<P>Voc&ecirc; pode criar um espa&ccedil;o de trabalho do ODBCDirect especificando
+a constante dbUseODBC para o argumento tipo do m&eacute;todo CreateWorkspace.
+Voc&ecirc; tamb&eacute;m pode especificar que o espa&ccedil;o de trabalho
+do ODBCDirect seja, por padr&atilde;o, criado pela defini&ccedil;&atilde;o
+da propriedade TipoPadr&atilde;o do objeto DBEngine.
+
+<P>Depois de ter criado um espa&ccedil;o de trabalho do ODBCDirect, voc&ecirc;
+pode utilizar objetos DAO, propriedades e m&eacute;todos espec&iacute;ficos
+para trabalhar com dados no servidor do banco de dados ODBC.
+
+<P>Vantagens de Acessar Dados ODBC com o Microsoft Jet
+
+<P>Os espa&ccedil;os de trabalho do Microsoft Jet e ODBCDirect proporcionam
+funcionalidades diferentes, embora complementares. Voc&ecirc; deve utilizar
+um espa&ccedil;o de trabalho do Microsoft Jet para acessar arquivos .mdb
+e formatos de dados ISAM, como texto e planilhas. O Microsoft Jet proporciona
+capacidades exclusivas que n&atilde;o est&atilde;o dispon&iacute;veis atrav&eacute;s
+do ODBCDirect, incluindo as que se seguem:
+
+<P>&middot; Associa&ccedil;&otilde;es atualiz&aacute;veis. Voc&ecirc; precisa
+utilizar um espa&ccedil;o de trabalho do Microsoft Jet para atualizar os
+dados nos objetos Recordset baseados em associa&ccedil;&otilde;es de m&uacute;ltiplas
+tabelas.
+
+<P>&middot; Associa&ccedil;&otilde;es heterog&ecirc;neas. Voc&ecirc; precisa
+utilizar um espa&ccedil;o de trabalho do Microsoft Jet para realizar associa&ccedil;&otilde;es
+de tabelas em diferentes fontes de dados.
+
+<P>&middot; Opera&ccedil;&otilde;es da Linguagem de Defini&ccedil;&atilde;o
+de Dados (DDL, Data Definition Language). Voc&ecirc; precisa utilizar um
+espa&ccedil;o de trabalho do Microsoft Jet para realizar opera&ccedil;&otilde;es
+DDL utilizando o DAO. O ODBCDirect n&atilde;o oferece um objeto TableDef
+e, portanto, voc&ecirc; n&atilde;o pode criar nem modificar tabelas utilizando
+o DAO. Voc&ecirc; pode, contudo, realizar opera&ccedil;&otilde;es DDL utilizando
+o ODBCDirect para executar instru&ccedil;&otilde;es DDL de SQL.
+
+<P>&middot; Acoplamento de formul&aacute;rio e controle. Se os seus aplicativos
+requerem que os formul&aacute;rios ou controles sejam acoplados aos dados
+em uma fonte de dados ODBC, voc&ecirc; precisa utilizar o Microsoft Jet.
+Os dados acessados dentro de um espa&ccedil;o de trabalho do ODBCDirect
+n&atilde;o podem ser acoplados a formul&aacute;rios ou controles.
+
+<P>Se voc&ecirc; n&atilde;o precisa destas capacidades, voc&ecirc; pode
+utilizar um espa&ccedil;o de trabalho do ODBCDirect.
+
+<P>Observa&ccedil;&atilde;o Voc&ecirc; pode definir os espa&ccedil;os de
+trabalho do Microsoft Jet e do ODBCDirect nos seus aplicativos e combin&aacute;-los
+da maneira que quiser. Por exemplo, na mesma fun&ccedil;&atilde;o, voc&ecirc;
+pode definir um espa&ccedil;o de trabalho do Microsoft Jet para realizar
+opera&ccedil;&otilde;es DDL que utilizem DAO e tamb&eacute;m pode definir
+um espa&ccedil;o de trabalho do ODBCDirect para realizar consultas ass&iacute;ncronas.
+
+<P>Criando uma caixa de di&aacute;logo com guias ou um formul&aacute;rio
+de v&aacute;rias p&aacute;ginas com o controle guia
+
+<P>&nbsp;
+<BR><A NAME="3) USAR ODBCDIRECT COM O MICROSOFT ACCESS"></A><B><FONT SIZE=+1>3)
+USAR ODBCDIRECT COM O MICROSOFT ACCESS</FONT></B>
+
+<P>O Que &eacute; ODBCDirect?
+
+<P>ODBCDirect &eacute; uma tecnologia que permite que voc&ecirc; trabalhe
+com servidores de banco de dados ODBC sem carregar o mecanismo de banco
+de dados Microsoft Jet. O ODBCDirect depende do modelo de objeto do Microsoft
+DAO 3.5 e, portanto, voc&ecirc; pode facilmente modificar o seu c&oacute;digo
+de DAO existente para aproveitar as vantagens do ODBCDirect. O Microsoft
+DAO 3.5 inclui novos objetos, m&eacute;todos e propriedades para suportar
+ao ODBCDirect.
+
+<P>Vantagens de Acessar Dados ODBC com o ODBCDirect
+
+<P>O ODBCDirect oferece as seguintes vantagens para as opera&ccedil;&otilde;es
+ODBC:
+
+<P>&middot; O ODBCDirect pode tornar o seu c&oacute;digo mais r&aacute;pido
+e eficiente por oferecer um acesso direto &agrave;s fontes de dados ODBC.
+Por n&atilde;o requerer que o mecanismo de banco de dados Microsoft Jet
+seja carregado, o ODBCDirect consome menos recursos no lado do cliente.
+O servidor ODBC &eacute; respons&aacute;vel por todo o processamento para
+consultas.
+
+<P>&middot; O ODBCDirect oferece um melhor acesso a recursos espec&iacute;ficos
+do servidor que n&atilde;o est&atilde;o dispon&iacute;veis pela utiliza&ccedil;&atilde;o
+do ODBC atrav&eacute;s do Microsoft Jet. Por exemplo, para servidores que
+suportam especifica&ccedil;&atilde;o de cursor, o ODBCDirect permite que
+voc&ecirc; especifique onde os cursores est&atilde;o localizados, se localmente
+ou no servidor. Al&eacute;m disso, para interagir com procedimentos armazenados
+no n&iacute;vel do servidor, voc&ecirc; pode especificar valores de entrada
+e ativar valores de retorno, que voc&ecirc; n&atilde;o pode fazer quando
+estiver usando o Microsoft Jet.
+
+<P>&middot; O ODBCDirect tamb&eacute;m suporta consultas ass&iacute;ncronas.
+Quando voc&ecirc; executa uma consulta, voc&ecirc; n&atilde;o precisa aguardar
+o t&eacute;rmino da execu&ccedil;&atilde;o da consulta antes de come&ccedil;ar
+uma outra opera&ccedil;&atilde;o. Voc&ecirc; pode acompanhar a execu&ccedil;&atilde;o
+da consulta ativando a propriedade StillExecuting.
+
+<P>&middot; O ODBCDirect suporta atualiza&ccedil;&atilde;o em lote, permitindo
+que voc&ecirc; estabele&ccedil;a localmente o cache de altera&ccedil;&otilde;es
+no objeto Recordset e ent&atilde;o submeta essas altera&ccedil;&otilde;es
+ao servidor em um &uacute;nico lote.
+
+<P>&middot; Com o ODBCDirect, voc&ecirc; pode criar conjuntos de resultados
+simples e sem cursor, ou cursores mais complexos. Voc&ecirc; tamb&eacute;m
+pode executar consultas que retornem qualquer n&uacute;mero de conjuntos
+de resultados. Voc&ecirc; pode limitar o n&uacute;mero de linhas retornadas
+e monitorar todas as mensagens e erros gerados pela fonte de dados remotos,
+sem afetar o desempenho da execu&ccedil;&atilde;o da consulta.
+
+<P>Criando um Espa&ccedil;o de Trabalho do ODBCDirect
+
+<P>Voc&ecirc; pode criar um espa&ccedil;o de trabalho do ODBCDirect especificando
+a constante dbUseODBC para o argumento tipo do m&eacute;todo CreateWorkspace.
+Voc&ecirc; tamb&eacute;m pode especificar que o espa&ccedil;o de trabalho
+do ODBCDirect seja, por padr&atilde;o, criado pela defini&ccedil;&atilde;o
+da propriedade TipoPadr&atilde;o do objeto DBEngine.
+
+<P>Depois de ter criado um espa&ccedil;o de trabalho do ODBCDirect, voc&ecirc;
+pode utilizar objetos DAO, propriedades e m&eacute;todos espec&iacute;ficos
+para trabalhar com dados no servidor do banco de dados ODBC.
+
+<P>Vantagens de Acessar Dados ODBC com o Microsoft Jet
+
+<P>Os espa&ccedil;os de trabalho do Microsoft Jet e ODBCDirect proporcionam
+funcionalidades diferentes, embora complementares. Voc&ecirc; deve utilizar
+um espa&ccedil;o de trabalho do Microsoft Jet para acessar arquivos .mdb
+e formatos de dados ISAM, como texto e planilhas. O Microsoft Jet proporciona
+capacidades exclusivas que n&atilde;o est&atilde;o dispon&iacute;veis atrav&eacute;s
+do ODBCDirect, incluindo as que se seguem:
+
+<P>&middot; Associa&ccedil;&otilde;es atualiz&aacute;veis. Voc&ecirc; precisa
+utilizar um espa&ccedil;o de trabalho do Microsoft Jet para atualizar os
+dados nos objetos Recordset baseados em associa&ccedil;&otilde;es de m&uacute;ltiplas
+tabelas.
+
+<P>&middot; Associa&ccedil;&otilde;es heterog&ecirc;neas. Voc&ecirc; precisa
+utilizar um espa&ccedil;o de trabalho do Microsoft Jet para realizar associa&ccedil;&otilde;es
+de tabelas em diferentes fontes de dados.
+
+<P>&middot; Opera&ccedil;&otilde;es da Linguagem de Defini&ccedil;&atilde;o
+de Dados (DDL, Data Definition Language). Voc&ecirc; precisa utilizar um
+espa&ccedil;o de trabalho do Microsoft Jet para realizar opera&ccedil;&otilde;es
+DDL utilizando o DAO. O ODBCDirect n&atilde;o oferece um objeto TableDef
+e, portanto, voc&ecirc; n&atilde;o pode criar nem modificar tabelas utilizando
+o DAO. Voc&ecirc; pode, contudo, realizar opera&ccedil;&otilde;es DDL utilizando
+o ODBCDirect para executar instru&ccedil;&otilde;es DDL de SQL.
+
+<P>&middot; Acoplamento de formul&aacute;rio e controle. Se os seus aplicativos
+requerem que os formul&aacute;rios ou controles sejam acoplados aos dados
+em uma fonte de dados ODBC, voc&ecirc; precisa utilizar o Microsoft Jet.
+Os dados acessados dentro de um espa&ccedil;o de trabalho do ODBCDirect
+n&atilde;o podem ser acoplados a formul&aacute;rios ou controles.
+
+<P>Se voc&ecirc; n&atilde;o precisa destas capacidades, voc&ecirc; pode
+utilizar um espa&ccedil;o de trabalho do ODBCDirect.
+
+<P>Observa&ccedil;&atilde;o Voc&ecirc; pode definir os espa&ccedil;os de
+trabalho do Microsoft Jet e do ODBCDirect nos seus aplicativos e combin&aacute;-los
+da maneira que quiser. Por exemplo, na mesma fun&ccedil;&atilde;o, voc&ecirc;
+pode definir um espa&ccedil;o de trabalho do Microsoft Jet para realizar
+opera&ccedil;&otilde;es DDL que utilizem DAO e tamb&eacute;m pode definir
+um espa&ccedil;o de trabalho do ODBCDirect para realizar consultas ass&iacute;ncronas.
+
+<P><A NAME="4) Configurar fontes de dados ODBC"></A><B><FONT SIZE=+1>4)
+Configurar fontes de dados ODBC</FONT></B>
+
+<P>Se voc&ecirc; instalou o driver ODBC para o Microsoft SQL Server ou
+outros drivers ODBC quando executou o Programa de Instala&ccedil;&atilde;o,
+pode configurar novas fontes de dados ou modificar fontes de dados existentes.
+
+<P>1 No Microsoft Windows 95 ou no Microsoft NT Workstation 4.0, clique
+no bot&atilde;o Iniciar do Windows, aponte para Configura&ccedil;&otilde;es,
+clique em Painel de Controle e, em seguida, clique duas vezes no &iacute;cone
+32bit ODBC (denominado &iacute;cone ODBC no Microsoft NT Workstation 4.0).
+
+<P>No Microsoft Windows NT Workstation 3.51, clique duas vezes no &iacute;cone
+ODBC no Painel de Controle.
+
+<P>2 Proceda de uma das maneiras a seguir:
+
+<P>&middot; Para definir uma nova fonte de dados para um driver atualmente
+instalado, clique em Adicionar.
+
+<P>&middot; Para modificar a configura&ccedil;&atilde;o de uma fonte de
+dados existente, clique em um nome na lista Fontes de Dados do Usu&aacute;rio
+(Driver) e, em seguida, clique em Configurar.
+
+<P>3 Complete as caixas de di&aacute;logo Para obter maiores informa&ccedil;&otilde;es
+sobre as diferentes op&ccedil;&otilde;es, clique no bot&atilde;o Ajuda
+em cada caixa de di&aacute;logo.
+
+<P>&nbsp;
+
+<P><A NAME="5) Configuring the Microsoft Jet Database Engine"></A><B><FONT SIZE=+1>5)
+Configuring the Microsoft Jet Database Engine for ODBC Access</FONT></B>
+
+<P>The following sections describe Windows registry settings settings for
+the Microsoft Jet database engine for connection to an ODBC database. These
+registry settings must be added by the user or by your application; the
+ODBC Driver Setup program does not write default values to the \HKEY_LOCAL_MACHINE\Software\Microsoft\Access\7.0\Jet\3.5\Engines\ODBC
+folder.
+
+<P>Initialization Settings for Jet-connected ODBC Databases
+
+<P>The \HKEY_LOCAL_MACHINE\Software\Microsoft\Access\7.0\Jet\3.5\Engines\ODBC
+folder contains initialization settings for the Microsoft Jet database
+engine. Before you can add any of the following values to the registry,
+you must create the ODBC folder under the Jet\3.5\Engines folder.
+
+<P>To create the new folder, open the Jet\3.5\Engines folder in the Registry
+Editor and click Add Key on the Edit menu. In the Key Name: edit box, type
+ODBC and click OK. The Registry Editor creates a new folder below the Jet\3.5\Engines
+folder.
+
+<P>Note If you are using Windows NT, the Add Key dialog box also contains
+an edit box for the registry key class; you can leave this setting blank.
+
+<P>Typical settings for the entries in the Jet\3.5\Engines\ODBC folder
+are shown in the following example.
+
+<P>LoginTimeout=20
+
+<P>QueryTimeout=60
+
+<P>ConnectionTimeout=600
+
+<P>AsyncRetryInterval=500
+
+<P>AttachCaseSensitive=0
+
+<P>AttachableObjects='TABLE','VIEW','SYSTEM TABLE','ALIAS','SYNONYM'
+
+<P>SnapshotOnly=0
+
+<P>TraceSQLMode=0
+
+<P>TraceODBCAPI=0
+
+<P>DisableAsync=0
+
+<P>JetTryAuth=1
+
+<P>PreparedInsert=0
+
+<P>PreparedUpdate=0
+
+<P>FastRequery=0
+
+<P>The Jet database engine uses the ODBC entries as follows.
+
+<P>Entry Description
+
+<P>LoginTimeout The number of seconds a login attempt can continue before
+timing out. The default is 20 (values are of type REG_DWORD).
+
+<P>QueryTimeout The number of seconds a query can run (total processing
+time) before timing out. The default is 60 (values are of type REG_DWORD).
+
+<P>ConnectionTimeout The number of seconds a cached connection can remain
+idle before timing out. The default is 600 (values are of type REG_DWORD).
+
+<P>AsyncRetryInterval The number of milliseconds between polls to determine
+if the server is done processing a query. This entry is used for asynchronous
+processing only. The default is 500 (values are of type REG_DWORD).
+
+<P>AttachCaseSensitive An indicator of whether to match table names exactly
+when linking. Values are 0 (link the first table matching the specified
+name, regardless of case) and 1 (link a table only if the name matches
+exactly). The default is 0 (values are of type REG_DWORD).
+
+<P>AttachableObjects A list of server object types to which linking will
+be allowed. The default is: 'TABLE', 'VIEW', 'SYSTEM TABLE', 'ALIAS', 'SYNONYM'
+(values are of type REG_SZ).
+
+<P>SnapshotOnly An indicator of whether Recordset objects are forced to
+be of snapshot type. Values are 0 (allow dynasets) and 1 (force snapshots
+only). The default is 0 (values are of type REG_DWORD).
+
+<P>TraceSQLMode An indicator of whether the Jet database engine will trace
+SQL statements sent to an ODBC data source in SQLOUT.txt. Values are 0
+(no) and 1 (yes). The default is 0 (values are of type REG_DWORD). This
+entry is interchangeable with SQLTraceMode.
+
+<P>TraceODBCAPI An indicator of whether to trace ODBC API calls in ODBCAPI.txt.
+Values are 0 (no) and 1 (yes). The default is 0 (values are of type REG_DWORD).
+
+<P>DisableAsync An indicator of whether to force synchronous query execution.
+Values are 0 (use asynchronous query execution if possible) and 1 (force
+synchronous query execution). The default is 1 (values are of type REG_DWORD).
+
+<P>JetTryAuth An indicator of whether to try using the Microsoft Access
+user name and password to log in to the server before prompting. Values
+are 0 (no) and 1 (yes). The default is 1 (values are of type REG_DWORD).
+
+<P>PreparedInsert An indicator of whether to use a prepared INSERT statement
+that inserts data in all columns. Values are 0 (use a custom INSERT statement
+that inserts only non-Null values) and 1 (use a prepared INSERT statement).
+The default is 0 (values are of type REG_DWORD).Using prepared INSERT statements
+can cause Nulls to overwrite server defaults and can cause triggers to
+execute on columns that weren't inserted explicitly.
+
+<P>PreparedUpdate An indicator of whether to use a prepared UPDATE statement
+that updates data in all columns. Values are 0 (use a custom UPDATE statement
+that sets only columns that have changed) and 1 (use a prepared UPDATE
+statement). The default is 0 (values are of type REG_DWORD).Using prepared
+UPDATE statements can cause triggers to execute on unchanged columns.
+
+<P>FastRequery An indicator of whether to use a prepared SELECT statement
+for parameterized queries. Values are 0 (no) and 1 (yes). The default is
+0 (values are of type REG_DWORD).
+
+<P><B><FONT SIZE=+1>&nbsp;</FONT></B>
+
+<P><A NAME="6) Construtor de seqüências de conexão ODBC"></A><B><FONT SIZE=+1>6)
+Construtor de seq&uuml;&ecirc;ncias de conex&atilde;o ODBC</FONT></B>
+
+<P>Uma ferramenta do Microsoft Access que voc&ecirc; pode utilizar para
+conectar-se a um banco de dados SQL ao criar uma consulta passagem. Se
+voc&ecirc; salvar a consulta, a seq&uuml;&ecirc;ncia de conex&atilde;o
+ser&aacute; armazenada com a mesma.
+
+<P>&nbsp;
+
+<P><A NAME="7) Criar a seqüência de conexão ODBC para uma"></A><B><FONT SIZE=+1>7)
+Criar a seq&uuml;&ecirc;ncia de conex&atilde;o ODBC para uma consulta passagem
+SQL</FONT></B>
+
+<P>1 Abra uma consulta passagem.
+
+<P>2 Clique em Propriedades na barra de ferramentas, para exibir a folha
+de propriedades da consulta.
+
+<P>3 Na folha de propriedades da consulta, clique em Construir &agrave;
+direita da caixa de propriedade Seq&uuml;&ecirc;ncia de Conex&atilde;o
+ODBC e, em seguida, insira informa&ccedil;&otilde;es sobre o servidor ao
+qual voc&ecirc; est&aacute; conectado.
+
+<P>4 Quando voc&ecirc; for solicitado a salvar a senha na seq&uuml;&ecirc;ncia
+de conex&atilde;o, selecione Sim se desejar que a senha e o logon sejam
+armazenados nas informa&ccedil;&otilde;es da seq&uuml;&ecirc;ncia de conex&atilde;o.
+
+<P>Observa&ccedil;&atilde;o A seq&uuml;&ecirc;ncia de conex&atilde;o ODBC
+padr&atilde;o &eacute; "ODBC;". Ap&oacute;s criar a seq&uuml;&ecirc;ncia
+de conex&atilde;o ODBC, o construtor insere uma nova seq&uuml;&ecirc;ncia
+na propriedade Seq&uuml;&ecirc;ncia de Conex&atilde;o ODBC, na folha de
+propriedades da consulta.
+
+<P>&nbsp;
+
+<P><A NAME="8) Fonte de Dados ODBC"></A><B><FONT SIZE=+1>8) Fonte de Dados
+ODBC</FONT></B>
+
+<P>Os dados e as informa&ccedil;&otilde;es necess&aacute;rias para acessar
+esses dados a partir de programas e bancos de dados que suportam o protocolo
+ODBC (Open Database Connectivity). Isso inclui, mas n&atilde;o se limita,
+ao Microsoft SQL Server. Por exemplo, uma fonte de dados SQL Server &eacute;
+o banco de dados SQL Server, o servidor no qual ele reside e as informa&ccedil;&otilde;es
+de rede necess&aacute;rias para acessar esse servidor. As informa&ccedil;&otilde;es
+exigidas para definir uma fonte de dados ODBC variam dependendo das exig&ecirc;ncias
+de seu driver ODBC. Voc&ecirc; deve criar uma defini&ccedil;&atilde;o de
+fonte de dados para cada banco de dados ODBC que deseja importar, exportar
+ou vincular no Microsoft Access.
+
+<P>&nbsp;
+
+<P><A NAME="9) Personalizar as configurações do driver ODBC"></A><B><FONT SIZE=+1>9)
+Personalizar as configura&ccedil;&otilde;es do driver ODBC</FONT></B>
+
+<P>1 Inicie o Editor de Registro.
+
+<P>(Veja como, abaixo)
+
+<P>2 Navegue at&eacute; a chave \HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Jet\3.5\Engines\ODBC
+e fa&ccedil;a as altera&ccedil;&otilde;es desejadas.
+
+<P>3 Saia do Editor de Registro.
+
+<P>4 Saia e reinicie o Microsoft Access para utilizar as novas configura&ccedil;&otilde;es.
+
+<P>Importante As altera&ccedil;&otilde;es nas configura&ccedil;&otilde;es
+desta chave afetar&atilde;o todos os programas instalados no computador
+que utilizam o mecanismo de banco de dados Microsoft Jet para acessar bancos
+de dados ODBC. Al&eacute;m do Microsoft Access 97, inclui o Microsoft Excel
+97, o Visual Basic 4.0 ou posterior, o Visual C++ 4.0 ou posterior e possivelmente
+outros. Para fazer altera&ccedil;&otilde;es que se apliquem somente ao
+Microsoft Access 97, navegue at&eacute; a chave \HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\8.0\Access\Jet\3.5\Engines\ODBC
+e, em seguida, modifique os valores ali. Se a chave \ODBC n&atilde;o existir,
+crie-a e adicione os valores.
+
+<P>Observa&ccedil;&atilde;o Voc&ecirc; tamb&eacute;m pode utilizar o m&eacute;todo
+do Objetos de Acesso a Dados (DAO), DBEngine.SetOption, para modificar
+dinamicamente os valores de registros do Microsoft Jet em tempo de execu&ccedil;&atilde;o
+para uma &uacute;nica sess&atilde;o, sem modificar de forma permanente
+os valores no Registro do Windows.
+
+<P>&nbsp;
+
+<P><A NAME="10) Método SetOption"></A><B><FONT SIZE=+1>10) M&eacute;todo
+SetOption</FONT></B>
+
+<P>Define novos valores para as chaves do mecanismo de banco de dados Microsoft
+Jet do Registro do Windows (somente espa&ccedil;o de trabalho do Microsoft
+Jet).
+
+<P>Sintaxe
+
+<P>DBEngine.SetOption par&acirc;metro, novovalor
+
+<P>A sintaxe do m&eacute;todo SetOption possui as partes a seguir:
+
+<P>Parte Descri&ccedil;&atilde;o
+
+<P>par&acirc;metro Uma constante Long, conforme descrito em "Configura&ccedil;&otilde;es".
+
+<P>novovalor Um valor Variant com o qual deseja definir par&acirc;metro.
+
+<P>Configura&ccedil;&otilde;es
+
+<P>Cada constante se refere &agrave; chave de registro correspondente no
+caminho Jet\3.5\Engines\Jet 3.5\ (ou seja, dbSharedAsyncDelay corresponde
+&agrave; chave Jet\3.5\Engines\Jet 3.5\SharedAsyncDelay, e assim sucessivamente).
+
+<P>Constante Descri&ccedil;&atilde;o
+
+<P>dbPageTimeout A chave PageTimeout
+
+<P>dbSharedAsyncDelay A chave SharedAsyncDelay
+
+<P>dbExclusiveAsyncDelay A chave ExclusiveAsyncDelay
+
+<P>dbLockRetry A chave LockRetry
+
+<P>dbUserCommitSync A chave UserCommitSync
+
+<P>dbImplicitCommitSync A chave ImplicitCommitSync
+
+<P>dbMaxBufferSize A chave MaxBufferSize
+
+<P>dbMaxLocksPerFile A chave MaxLocksPerFile
+
+<P>dbLockDelay A chave LockDelay
+
+<P>dbRecycleLVs A chave RecycleLVs
+
+<P>dbFlushTransactionTimeout A chave FlushTransactionTimeout
+
+<P>Coment&aacute;rios
+
+<P>Use o m&eacute;todo SetOption para substituir valores de registro em
+tempo de execu&ccedil;&atilde;o. Novos valores estabelecidos com o m&eacute;todo
+SetOption permanecem efetivos at&eacute; que sejam novamente alterados
+por outra chamada SetOption ou at&eacute; que o objeto DBEngine seja fechado.
+
+<P>Para saber mais detalhes sobre o que as chaves de registro fazem e os
+valores apropriados para defini-las, consulte Inicializando o Mecanismo
+de Banco de Dados Microsoft Jet 3.5.
+
+<P>EXEMPLO:
+
+<P>Este exemplo utiliza o m&eacute;todo SetOption para alterar o valor
+de duas chaves de registro baseado na entrada do usu&aacute;rio. O m&eacute;todo
+SetOption apenas substitui os valores de registro armazenados do aplicativo
+atual. As configura&ccedil;&otilde;es armazenadas permanecer&atilde;o inalteradas
+e ser&atilde;o os &uacute;nicos valores vis&iacute;veis para o usu&aacute;rio
+atrav&eacute;s de REGEDIT.EXE.
+
+<P>Sub SetOptionX()
+
+<P>Dim intExclusiveDelay As Integer
+
+<P>Dim intSharedDelay As Integer
+
+<P>' Obt&eacute;m entrada do usu&aacute;rio para novos valores das
+
+<P>' chaves de registro ExclusiveAsyncDelay e
+
+<P>' SharedAsyncDelay.
+
+<P>intExclusiveDelay = Val(InputBox("Insira um novo valor " &amp; _
+
+<P>" para a chave de registro ExclusiveAsyncDelay " &amp; _
+
+<P>"(em milissegundos):"))
+
+<P>intSharedDelay = Val(InputBox("Insira um novo valor " &amp; _
+
+<P>"para a chave de registro SharedAsyncDelay " &amp; _
+
+<P>"(em milissegundos):"))
+
+<P>If intExclusiveDelay > 0 And intSharedDelay > 0 Then
+
+<P>' Altera os valores das chaves de registro.
+
+<P>SetOption dbExclusiveAsyncDelay, intExclusiveDelay
+
+<P>SetOption dbSharedAsyncDelay, intSharedDelay
+
+<P>MsgBox "Chaves de registro alteradas para novos valores " &amp; _
+
+<P>"para dura&ccedil;&atilde;o do programa."
+
+<P>Else
+
+<P>MsgBox "As chaves de registro permaneceram inalteradas."
+
+<P>End If
+
+<P>End Sub
+
+<P>&nbsp;
+
+<P><A NAME="11) Utilizar o Editor de Registro"></A><B><FONT SIZE=+1>11)
+Utilizar o Editor de Registro</FONT></B>
+
+<P>Cuidado V&aacute;rias defini&ccedil;&otilde;es do Registro do Microsoft
+Access s&atilde;o adicionadas automaticamente quando voc&ecirc; instala
+o programa. A altera&ccedil;&atilde;o das defini&ccedil;&otilde;es instaladas
+pode produzir resultados inesperados, o que pode tornar necess&aacute;ria
+uma nova instala&ccedil;&atilde;o do Microsoft Access. &Eacute; altamente
+recomend&aacute;vel que voc&ecirc; n&atilde;o altere as defini&ccedil;&otilde;es
+no Registro do Windows. Entretanto, se voc&ecirc; precisar alterar as defini&ccedil;&otilde;es
+ou op&ccedil;&otilde;es do Registro, utilize o Editor de Registro do Windows
+e altere somente aquelas defini&ccedil;&otilde;es ou op&ccedil;&otilde;es
+que estiverem explicitamente documentadas. As defini&ccedil;&otilde;es
+revisadas entrar&atilde;o em vigor na pr&oacute;xima vez em que voc&ecirc;
+iniciar o Microsoft Access. &Eacute; recomend&aacute;vel que voc&ecirc;
+fa&ccedil;a um backup do Registro ou, pelo menos, da parte que ser&aacute;
+editada. Para obter informa&ccedil;&otilde;es, procure "efetuando o backup
+do Registro" no &iacute;ndice da Ajuda on-line do Editor de Registro (dispon&iacute;vel
+na barra de menu do Editor de Registro).
+
+<P>1 Para executar o Editor de Registro no Windows 95, clique no bot&atilde;o
+Iniciar do Windows, clique em Executar, digite regedit e, em seguida, clique
+em OK.
+
+<P>Para executar o Editor de Registro no Windows NT Workstation, no Gerenciador
+de Programas ou no Gerenciador de Arquivos, clique em Executar no menu
+Arquivo, digite regedt32 e, em seguida, clique em OK.
+
+<P>2 Clique duas vezes nos &iacute;cones-chave para navegar at&eacute;
+a chave do Registro adequada. As duas chaves principais que cont&ecirc;m
+defini&ccedil;&otilde;es que afetam o Microsoft Access s&atilde;o:
+
+<P>&middot; \HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\8.0\Access
+
+<P>&middot; \HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Jet\3.5
+
+<P>Se houver um sinal de adi&ccedil;&atilde;o (+) &agrave; esquerda da
+chave, a chave do registro conter&aacute; chaves adicionais. Para editar
+o(s) valor(es) de uma chave de registro, clique duas vezes na chave no
+painel esquerdo da janela do Editor de Registro para abri-la e clique duas
+vezes no valor que deseja editar no painel direito da janela do Editor
+de Registro. Em alguns casos, pode ser necess&aacute;rio adicionar novas
+chaves ou valores. Para obter informa&ccedil;&otilde;es sobre como adicionar
+novas chaves e valores, utilize a Ajuda on-line do Editor de Registro.
+
+<P>Importante As chaves exibidas abaixo da chave \Microsoft\Office\8.0\Access
+aplicam-se somente ao Microsoft Access 8.0. As chaves que s&atilde;o mostradas
+abaixo da chave \Microsoft\Jet\3.5 aplicam-se ao mecanismo de banco de
+dados Microsoft Jet que o Microsoft Access utiliza para acesso a dados.
+As altera&ccedil;&otilde;es em qualquer uma dessas defini&ccedil;&otilde;es
+afetam o Microsoft Access 97 e afetar&atilde;o outros programas que utilizam
+o mecanismo de banco de dados Microsoft Jet, como o Microsoft Excel 97,
+o Visual Basic 4.0 ou posterior, o Visual C++ 4.0 ou posterior e possivelmente
+outros programas. Para fazer altera&ccedil;&otilde;es nas defini&ccedil;&otilde;es
+do mecanismo de banco de dados Microsoft Jet que afetam somente o Microsoft
+Access, altere as defini&ccedil;&otilde;es na chave \HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\8.0\Access\Jet\3.5.
+
+<P>&nbsp;
+
+<P><A NAME="12) Sobre instalação de drivers ODBC"></A><B><FONT SIZE=+1>12)
+Sobre instala&ccedil;&atilde;o de drivers ODBC</FONT></B>
+
+<P>Voc&ecirc; pode instalar o driver para o Microsoft SQL Server utilizando
+o Programa de Instala&ccedil;&atilde;o e, em seguida, utilizar o gerenciador
+de ODBC para especificar fontes de dados. Voc&ecirc; pode, tamb&eacute;m,
+utilizar o gerenciador de ODBC para especificar fontes de dados para outros
+drivers ODBC instalados.
+
+<P>Instalando o driver para o Microsoft SQL Server fornecido com o Microsoft
+Access
+
+<P>Quando voc&ecirc; instalou o Microsoft Access, pode ter escolhido instalar
+o suporte ODBC e o driver para o Microsoft SQL Server em sua esta&ccedil;&atilde;o
+de trabalho. Se n&atilde;o fez isso, ou se tiver escolhido a instala&ccedil;&atilde;o
+T&iacute;pica, ter&aacute; que executar novamente o Programa de Instala&ccedil;&atilde;o
+e optar por acrescentar um desses componentes. Depois que o driver estiver
+instalado, voc&ecirc; ainda precisa configurar fontes de dados.
+
+<P>(Veja abaixo)
+
+<P>Instalando outros drivers ODBC que n&atilde;o o Microsoft SQL Server
+
+<P>Para instalar outros drivers que n&atilde;o o Microsoft SQL Server,
+voc&ecirc; precisa obter os arquivos e a documenta&ccedil;&atilde;o para
+esse driver ODBC junto ao revendedor do formato dos dados. Cada driver
+ODBC possui requisitos espec&iacute;ficos para instala&ccedil;&atilde;o
+e configura&ccedil;&atilde;o de fontes de dados. Consulte a documenta&ccedil;&atilde;o
+do driver para obter maiores informa&ccedil;&otilde;es.
+
+<P><B><FONT SIZE=+1>&nbsp;</FONT></B>
+
+<P><A NAME="13) Configurar fontes de dados ODBC"></A><B><FONT SIZE=+1>13)
+Configurar fontes de dados ODBC</FONT></B>
+
+<P>Se voc&ecirc; instalou o driver ODBC para o Microsoft SQL Server ou
+outros drivers ODBC quando executou o Programa de Instala&ccedil;&atilde;o,
+pode configurar novas fontes de dados ou modificar fontes de dados existentes.
+
+<P>1 No Microsoft Windows 95 ou no Microsoft NT Workstation 4.0, clique
+no bot&atilde;o Iniciar do Windows, aponte para Configura&ccedil;&otilde;es,
+clique em Painel de Controle e, em seguida, clique duas vezes no &iacute;cone
+32bit ODBC (denominado &iacute;cone ODBC no Microsoft NT Workstation 4.0).
+
+<P>No Microsoft Windows NT Workstation 3.51, clique duas vezes no &iacute;cone
+ODBC no Painel de Controle.
+
+<P>2 Proceda de uma das maneiras a seguir:
+
+<P>&middot; Para definir uma nova fonte de dados para um driver atualmente
+instalado, clique em Adicionar.
+
+<P>&middot; Para modificar a configura&ccedil;&atilde;o de uma fonte de
+dados existente, clique em um nome na lista Fontes de Dados do Usu&aacute;rio
+(Driver) e, em seguida, clique em Configurar.
+
+<P>3 Complete as caixas de di&aacute;logo Para obter maiores informa&ccedil;&otilde;es
+sobre as diferentes op&ccedil;&otilde;es, clique no bot&atilde;o Ajuda
+em cada caixa de di&aacute;logo.
+
+<P>&nbsp;
+
+<P><A NAME="14) Instalar drivers para bancos de dados internos"></A><B><FONT SIZE=+1>14)
+Instalar drivers para bancos de dados internos</FONT></B>
+
+<P>1 Execute novamente o Programa de Instala&ccedil;&atilde;o e, em seguida,
+clique em Adicionar/Remover.
+
+<P>2 Selecione Acesso a Dados e, em seguida, clique em Alterar Op&ccedil;&atilde;o.
+
+<P>3 Selecione Drivers para Bancos de Dados e, em seguida, clique em Alterar
+Op&ccedil;&atilde;o.
+
+<P>4 Selecione os drivers que voc&ecirc; deseja instalar e, em seguida,
+clique duas vezes em OK.
+
+<P>5 Clique em Continuar e siga as instru&ccedil;&otilde;es nas demais
+caixas de di&aacute;logo do Programa de Instala&ccedil;&atilde;o.
+
+<P>Observa&ccedil;&atilde;o Os drivers para o Lotus 1-2-3, Paradox e Microsoft
+Exchange/Outlook n&atilde;o est&atilde;o inclu&iacute;dos no Programa de
+Instala&ccedil;&atilde;o, mas est&atilde;o dispon&iacute;veis pelo Office
+97 ValuPack.
+<BR>&nbsp;
+
+<P><A NAME="15) Instalar o Driver para o Microsoft Access"></A><B><FONT SIZE=+1>15)
+Instalar o Driver para o Microsoft Access</FONT></B>
+
+<P>Para acessar um banco de dados do Microsoft Access a partir de seu aplicativo
+da World Wide Web executando no Microsoft Internet Information Server ou
+Microsoft Personal Web Server, voc&ecirc; dever&aacute; instalar o driver
+para o Microsoft Access (Odbcjt32.dll) na m&aacute;quina do servidor da
+Web.
+
+<P>Ao executar o Programa de Instala&ccedil;&atilde;o para o Microsoft
+Internet Information Server, voc&ecirc; poder&aacute; instalar este driver,
+selecionando a op&ccedil;&atilde;o ODBC Drivers e Administra&ccedil;&atilde;o.
+Entretanto, o Microsoft Personal Web Server n&atilde;o cont&eacute;m o
+driver para o Microsoft Access.
+
+<P>Para instalar o driver para o Microsoft Access em ambos os servidores:
+
+<P>1 Execute o Microsoft Office Professional ou o Programa de Instala&ccedil;&atilde;o
+do Microsoft Access.
+
+<P>2 Se estiver executando a Instala&ccedil;&atilde;o pela primeira vez,
+clique em Personalizada.
+
+<P>Se n&atilde;o estiver executando a Instala&ccedil;&atilde;o pela primeira
+vez, clique em Adicionar/Remover.
+
+<P>3 Selecione Data Access And ActiveX Controls e clique em Alterar Op&ccedil;&atilde;o.
+
+<P>4 Selecione Database Drivers e clique em Alterar Op&ccedil;&atilde;o.
+
+<P>5 Selecione Microsoft Access Driver e clique em OK.
+
+<P>6 Clique em Continuar e siga as instru&ccedil;&otilde;es contidas nas
+demais caixas de di&aacute;logo da Instala&ccedil;&atilde;o.
+
+<P>&nbsp;
+
+<P><A NAME="16) Usar ODBCDirect com o Microsoft Access"></A><B><FONT SIZE=+1>16)
+Usar ODBCDirect com o Microsoft Access</FONT></B>
+
+<P>O Que &eacute; ODBCDirect?
+
+<P>ODBCDirect &eacute; uma tecnologia que permite que voc&ecirc; trabalhe
+com servidores de banco de dados ODBC sem carregar o mecanismo de banco
+de dados Microsoft Jet. O ODBCDirect depende do modelo de objeto do Microsoft
+DAO 3.5 e, portanto, voc&ecirc; pode facilmente modificar o seu c&oacute;digo
+de DAO existente para aproveitar as vantagens do ODBCDirect. O Microsoft
+DAO 3.5 inclui novos objetos, m&eacute;todos e propriedades para suportar
+ao ODBCDirect.
+
+<P>Vantagens de Acessar Dados ODBC com o ODBCDirect
+
+<P>O ODBCDirect oferece as seguintes vantagens para as opera&ccedil;&otilde;es
+ODBC:
+
+<P>&middot; O ODBCDirect pode tornar o seu c&oacute;digo mais r&aacute;pido
+e eficiente por oferecer um acesso direto &agrave;s fontes de dados ODBC.
+Por n&atilde;o requerer que o mecanismo de banco de dados Microsoft Jet
+seja carregado, o ODBCDirect consome menos recursos no lado do cliente.
+O servidor ODBC &eacute; respons&aacute;vel por todo o processamento para
+consultas.
+
+<P>&middot; O ODBCDirect oferece um melhor acesso a recursos espec&iacute;ficos
+do servidor que n&atilde;o est&atilde;o dispon&iacute;veis pela utiliza&ccedil;&atilde;o
+do ODBC atrav&eacute;s do Microsoft Jet. Por exemplo, para servidores que
+suportam especifica&ccedil;&atilde;o de cursor, o ODBCDirect permite que
+voc&ecirc; especifique onde os cursores est&atilde;o localizados, se localmente
+ou no servidor. Al&eacute;m disso, para interagir com procedimentos armazenados
+no n&iacute;vel do servidor, voc&ecirc; pode especificar valores de entrada
+e ativar valores de retorno, que voc&ecirc; n&atilde;o pode fazer quando
+estiver usando o Microsoft Jet.
+
+<P>&middot; O ODBCDirect tamb&eacute;m suporta consultas ass&iacute;ncronas.
+Quando voc&ecirc; executa uma consulta, voc&ecirc; n&atilde;o precisa aguardar
+o t&eacute;rmino da execu&ccedil;&atilde;o da consulta antes de come&ccedil;ar
+uma outra opera&ccedil;&atilde;o. Voc&ecirc; pode acompanhar a execu&ccedil;&atilde;o
+da consulta ativando a propriedade StillExecuting.
+
+<P>&middot; O ODBCDirect suporta atualiza&ccedil;&atilde;o em lote, permitindo
+que voc&ecirc; estabele&ccedil;a localmente o cache de altera&ccedil;&otilde;es
+no objeto Recordset e ent&atilde;o submeta essas altera&ccedil;&otilde;es
+ao servidor em um &uacute;nico lote.
+
+<P>&middot; Com o ODBCDirect, voc&ecirc; pode criar conjuntos de resultados
+simples e sem cursor, ou cursores mais complexos. Voc&ecirc; tamb&eacute;m
+pode executar consultas que retornem qualquer n&uacute;mero de conjuntos
+de resultados. Voc&ecirc; pode limitar o n&uacute;mero de linhas retornadas
+e monitorar todas as mensagens e erros gerados pela fonte de dados remotos,
+sem afetar o desempenho da execu&ccedil;&atilde;o da consulta.
+
+<P>Criando um Espa&ccedil;o de Trabalho do ODBCDirect
+
+<P>Voc&ecirc; pode criar um espa&ccedil;o de trabalho do ODBCDirect especificando
+a constante dbUseODBC para o argumento tipo do m&eacute;todo CreateWorkspace.
+Voc&ecirc; tamb&eacute;m pode especificar que o espa&ccedil;o de trabalho
+do ODBCDirect seja, por padr&atilde;o, criado pela defini&ccedil;&atilde;o
+da propriedade TipoPadr&atilde;o do objeto DBEngine.
+
+<P>Depois de ter criado um espa&ccedil;o de trabalho do ODBCDirect, voc&ecirc;
+pode utilizar objetos DAO, propriedades e m&eacute;todos espec&iacute;ficos
+para trabalhar com dados no servidor do banco de dados ODBC.
+
+<P>Vantagens de Acessar Dados ODBC com o Microsoft Jet
+
+<P>Os espa&ccedil;os de trabalho do Microsoft Jet e ODBCDirect proporcionam
+funcionalidades diferentes, embora complementares. Voc&ecirc; deve utilizar
+um espa&ccedil;o de trabalho do Microsoft Jet para acessar arquivos .mdb
+e formatos de dados ISAM, como texto e planilhas. O Microsoft Jet proporciona
+capacidades exclusivas que n&atilde;o est&atilde;o dispon&iacute;veis atrav&eacute;s
+do ODBCDirect, incluindo as que se seguem:
+
+<P>&middot; Associa&ccedil;&otilde;es atualiz&aacute;veis. Voc&ecirc; precisa
+utilizar um espa&ccedil;o de trabalho do Microsoft Jet para atualizar os
+dados nos objetos Recordset baseados em associa&ccedil;&otilde;es de m&uacute;ltiplas
+tabelas.
+
+<P>&middot; Associa&ccedil;&otilde;es heterog&ecirc;neas. Voc&ecirc; precisa
+utilizar um espa&ccedil;o de trabalho do Microsoft Jet para realizar associa&ccedil;&otilde;es
+de tabelas em diferentes fontes de dados.
+
+<P>&middot; Opera&ccedil;&otilde;es da Linguagem de Defini&ccedil;&atilde;o
+de Dados (DDL, Data Definition Language). Voc&ecirc; precisa utilizar um
+espa&ccedil;o de trabalho do Microsoft Jet para realizar opera&ccedil;&otilde;es
+DDL utilizando o DAO. O ODBCDirect n&atilde;o oferece um objeto TableDef
+e, portanto, voc&ecirc; n&atilde;o pode criar nem modificar tabelas utilizando
+o DAO. Voc&ecirc; pode, contudo, realizar opera&ccedil;&otilde;es DDL utilizando
+o ODBCDirect para executar instru&ccedil;&otilde;es DDL de SQL.
+
+<P>&middot; Acoplamento de formul&aacute;rio e controle. Se os seus aplicativos
+requerem que os formul&aacute;rios ou controles sejam acoplados aos dados
+em uma fonte de dados ODBC, voc&ecirc; precisa utilizar o Microsoft Jet.
+Os dados acessados dentro de um espa&ccedil;o de trabalho do ODBCDirect
+n&atilde;o podem ser acoplados a formul&aacute;rios ou controles.
+
+<P>Se voc&ecirc; n&atilde;o precisa destas capacidades, voc&ecirc; pode
+utilizar um espa&ccedil;o de trabalho do ODBCDirect.
+
+<P>Observa&ccedil;&atilde;o Voc&ecirc; pode definir os espa&ccedil;os de
+trabalho do Microsoft Jet e do ODBCDirect nos seus aplicativos e combin&aacute;-los
+da maneira que quiser. Por exemplo, na mesma fun&ccedil;&atilde;o, voc&ecirc;
+pode definir um espa&ccedil;o de trabalho do Microsoft Jet para realizar
+opera&ccedil;&otilde;es DDL que utilizem DAO e tamb&eacute;m pode definir
+um espa&ccedil;o de trabalho do ODBCDirect para realizar consultas ass&iacute;ncronas.
+
+<P><A NAME="17) Propriedade ODBCConnectStr"></A><B><FONT SIZE=+1>17) Propriedade
+ODBCConnectStr (Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC)</FONT></B>
+
+<P>Voc&ecirc; pode utilizar a propriedade Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC
+em uma consulta passagem SQL para especificar a seq&uuml;&ecirc;ncia de
+conex&atilde;o ODBC para a consulta.
+
+<P>Observa&ccedil;&atilde;o A propriedade Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC
+s&oacute; se aplica a consultas passagem.
+
+<P>Defini&ccedil;&atilde;o
+
+<P>Insira a Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC que define a conex&atilde;o
+ao banco de dados SQL que voc&ecirc; deseja utilizar.
+
+<P>Voc&ecirc; pode definir essa propriedade utilizando a folha de propriedades
+da consulta ou o Visual Basic.
+
+<P>Voc&ecirc; pode tamb&eacute;m utilizar o Construtor de Seq&uuml;&ecirc;ncias
+de Conex&atilde;o ODBC para criar a Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC
+para essa propriedade. Esse construtor estabelece uma conex&atilde;o ao
+servidor de banco de dados SQL e, em seguida, finaliza a conex&atilde;o
+depois da Seq&uuml;&ecirc;nciaDeConex&atilde;oODBC ser criada.
+
+<P>Coment&aacute;rios
+
+<P>A defini&ccedil;&atilde;o padr&atilde;o para essa propriedade &eacute;
+a seq&uuml;&ecirc;ncia "ODBC;", que o Microsoft Access restaura quando
+voc&ecirc; exclui uma defini&ccedil;&atilde;o existente. Quando a propriedade
+Seq&uuml;&ecirc;ncia de Conex&atilde;o ODBC estiver definida como "ODBC;",
+o Microsoft Access pedir&aacute; a voc&ecirc; uma seq&uuml;&ecirc;ncia
+de conex&atilde;o sempre que a consulta for utilizada, mas n&atilde;o armazenar&aacute;
+a seq&uuml;&ecirc;ncia de conex&atilde;o. Voc&ecirc; precisa inserir uma
+seq&uuml;&ecirc;ncia de conex&atilde;o na caixa da propriedade Seq&uuml;&ecirc;ncia
+de Conex&atilde;o ODBC se desejar que o Microsoft Access armazene a seq&uuml;&ecirc;ncia
+de conex&atilde;o.
+
+<P>Dica Se voc&ecirc; conhece a seq&uuml;&ecirc;ncia de conex&atilde;o
+completa para o banco de dados SQL, insira-a na caixa da propriedade Seq&uuml;&ecirc;ncia
+de Conex&atilde;o ODBC. Dessa forma, n&atilde;o ser&aacute; necess&aacute;rio
+inserir a seq&uuml;&ecirc;ncia de conex&atilde;o na caixa de di&aacute;logo
+de conex&atilde;o ODBC cada vez que utilizar a consulta.
+
+<P>A seq&uuml;&ecirc;ncia de conex&atilde;o &eacute; diferente para tipos
+de fontes de dados ODBC diferentes. Por exemplo, para conectar-se &agrave;
+fonte de dados Recursos Humanos no servidor SRVDRH (um Microsoft SQL Server),
+utilizando a identifica&ccedil;&atilde;o de logon (ID) Silva e a senha
+Sesamo, voc&ecirc; pode utilizar a seq&uuml;&ecirc;ncia de conex&atilde;o
+a seguir.
+
+<P>ODBC;NFD=Recursos Humanos;SERVER=SRVDRH;UID=Silva;PWD=Sesamo
+
+<P>Para obter maiores informa&ccedil;&otilde;es sobre como acessar dados
+em bancos de dados ODBC, consulte o cap&iacute;tulo 18, "Acessando dados
+externos", em Criando Aplicativos com o Microsoft Access 97.
+<BR>&nbsp;
+
+<P>Ribamar FS&nbsp;&nbsp;&nbsp; ribafs@yahoo.com
+<BR>24/12/1999
+</BODY>
+
+<!-- Mirrored from www.psantos.org/ribafs/access/ODBC.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 10:57:12 GMT -->
+</HTML>
